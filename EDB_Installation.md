@@ -147,15 +147,14 @@ pgrep -f standalone.sh
 kill -9 <PID>
 ```
 
-#### Reattach to a Screen Session:
-```
-screen -r jboss
-```
-
-
 ### Start pgAdmin:
 ```
 systemctl start httpd
+```
+
+#### Reattach to a Screen Session:
+```
+screen -r jboss
 ```
 
 <hr>
