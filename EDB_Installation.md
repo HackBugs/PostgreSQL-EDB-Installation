@@ -36,7 +36,7 @@ ls | grep edb-as17-server
 yum install edb-as17-server-17.2.0-1.el8.x86_64.rpm
 ```
 
-If you encounter conflicts during installation, run:
+#### If you encounter conflicts during installation, run:
 ```
 ps -ef | grep "conflict filename"
 sudo yum install "all conflict filenames separated by spaces" -y
