@@ -90,9 +90,9 @@ cd $PGDATA
 psql
 ```
 
----
-
 <hr>
+
+# Useful Commands
 
 ### Find Resources by Name:
 ```
