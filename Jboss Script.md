@@ -1,3 +1,4 @@
+## Script
 ```
 #!/bin/bash
 
@@ -73,3 +74,26 @@ sudo firewall-cmd --reload
 
 echo "WildFly (JBoss) installation and setup complete!"
 ```
+
+<hr>
+
+> ## Download Link
+
+ ### **Recommended Download Options:**
+
+1. **Compressed Archive (Manual Installation):**  
+   Agar aap zip file se manually install karna chahte hain, to ye download karein:
+   - **File:** `jdk-23_linux-x64_bin.tar.gz`  
+   - **Link:** [Download Compressed Archive](https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.tar.gz)  
+
+2. **RPM Package (Simpler Installation):**  
+   Agar aap RPM package prefer karte hain (jo ki RHEL aur CentOS ke liye asaan hai), to ye download karein:
+   - **File:** `jdk-23_linux-x64_bin.rpm`  
+   - **Link:** [Download RPM Package](https://download.oracle.com/java/23/latest/jdk-23_linux-x64_bin.rpm)
+   
+3.  **JBoss (WildFly) Download Options** 
+- **Compressed Archive (Manual Installation)**:  
+   - **File:** `wildfly-<version>.Final.zip`  
+   - **Link:** [Download WildFly (JBoss) Compressed Archive](https://www.wildfly.org/downloads/)
+ 
+<hr>
