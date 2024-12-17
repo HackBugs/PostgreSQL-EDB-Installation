@@ -1,4 +1,56 @@
-## Script
+## Script Install pgAdmin on REHL
+```
+#!/bin/bash
+
+# Print message for each step
+echo "Starting pgAdmin4 installation process..."
+
+# Step 1: Install EPEL Repository
+echo "Installing EPEL Repository..."
+sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+
+# Step 2: Install pgAdmin Repository
+echo "Installing pgAdmin4 repository..."
+sudo dnf install -y https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-redhat-repo-2-1.noarch.rpm
+
+# Step 3: Update the repository cache
+echo "Making repository cache..."
+sudo dnf makecache
+
+# Step 4: Install pgAdmin4
+echo "Installing pgAdmin4..."
+sudo dnf install -y pgadmin4
+
+# Step 5: Verify pgAdmin4 installation
+echo "Verifying pgAdmin4 installation..."
+rpm -qi pgadmin4
+
+# Step 6: Start and enable the httpd service (web server)
+echo "Starting and enabling the httpd service..."
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
+
+# Step 7: Set up the pgAdmin4 web service
+echo "Running pgAdmin4 web setup..."
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+# Step 8: Install policycoreutils for SELinux management (if necessary)
+echo "Checking for semanage command..."
+sudo dnf provides /usr/sbin/semanage
+
+# Step 9: Install policycoreutils-python-utils package (for SELinux policies)
+echo "Installing policycoreutils-python-utils..."
+sudo dnf install -y policycoreutils-python-utils
+
+# Step 10: Running the pgAdmin4 web setup script again
+echo "Running pgAdmin4 web setup again..."
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+echo "pgAdmin4 installation and setup complete!"
+```
+
+## Script Jboss
 ```
 #!/bin/bash
 
