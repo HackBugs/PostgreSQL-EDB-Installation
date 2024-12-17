@@ -3,7 +3,6 @@
 > ## All file hyperlinks
 
 [Commands.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Commands.md)  
-[Postgresql EDB installation](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Postgresql%20EDB%20installation.md)  
 [DBeaver Tool.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/DBeaver%20Tool.md)  
 [DevOps Tools.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/DevOps%20Tools.md)  
 [EDB - Oracle aur PostgreSQL ke queries.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/EDB%20-%20Oracle%20aur%20PostgreSQL%20ke%20queries.md)  
