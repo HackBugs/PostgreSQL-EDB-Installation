@@ -93,11 +93,19 @@ psql
 <hr>
 
 > # Download and Install JBoss Wildfly  
-[Official Download Link](https://www.wildfly.org/downloads/)
+[Official Download Link Jboss](https://www.wildfly.org/downloads/)
+[Download Java JDK](https://www.oracle.com/in/java/technologies/downloads/)
+
+### Download this both file 
+```
+jdk-23_linux-x64_bin.tar.gz
+wildfly-34.0.1.Final.tar.gz
+```
 
 #### Extract Files:
 ```
-mkdir EDB && tar -zxvf your_file.tar.gz -C EDB
+tar -zxvf jdk-23_linux-x64_bin.tar.gz
+tar -zxvf wildfly-34.0.1.Final.tar.gz
 ```
 
 ### Necessary charging on this Locations:
