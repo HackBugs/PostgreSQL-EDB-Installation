@@ -92,57 +92,6 @@ psql
 
 <hr>
 
-> # Useful Commands
-
-### Find Resources by Name:
-```
-sudo find / -name httpd
-find /opt/EDB -name psql
-sudo systemctl list-units --type=service | grep edb
-```
-
-### Download Required Files:
-```
-jdk-23_linux-x64_bin.tar.gz
-wildfly-34.0.1.Final.tar.gz
-el_8_x86_64.tar.gz (EDB File)
-```
-
-### Install EDB Offline (RPM Files):  
-1. Copy the RPM Files to Your System:
-```
-scp /path/to/edb-postgresql*.rpm user@rhel-system:/path/to/destination/
-```
-
-2. Install the RPM Locally:
-```
-sudo yum localinstall /path/to/edb-postgresql*.rpm
-```
-
-3. Alternatively, Use `rpm` for Manual Dependency Resolution:
-```
-sudo rpm -ivh /path/to/edb-postgresql*.rpm
-```
-
-4. Start and Enable PostgreSQL Service:
-```
-sudo systemctl start edb-as
-sudo systemctl enable edb-as
-```
-
-5. Verify Installation:
-```
-psql --version
-```
-
-6. Login to PostgreSQL:
-```
-sudo -i -u postgres
-psql
-```
-
-<hr>
-
 > # Download and Install JBoss Wildfly  
 [Official Download Link](https://www.wildfly.org/downloads/)
 
@@ -199,6 +148,73 @@ screen -r jboss
 ### Start pgAdmin:
 ```
 systemctl start httpd
+```
+
+<hr>
+
+> # PostgreSQL DBA: How to Install and Configure PostgreSQL 16 on Redhat/RHEL
+
+[Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/)
+
+- Run this script
+```
+sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+sudo dnf -qy module disable postgresql
+sudo dnf install -y postgresql17-server
+sudo /usr/pgsql-17/bin/postgresql-17-setup initdb
+sudo systemctl enable postgresql-17
+sudo systemctl start postgresql-17
+```
+
+<hr>
+
+> # Useful Commands
+
+### Find Resources by Name:
+```
+sudo find / -name httpd
+find /opt/EDB -name psql
+sudo systemctl list-units --type=service | grep edb
+```
+
+### Download Required Files:
+```
+jdk-23_linux-x64_bin.tar.gz
+wildfly-34.0.1.Final.tar.gz
+el_8_x86_64.tar.gz (EDB File)
+```
+
+### Install EDB Offline (RPM Files):  
+1. Copy the RPM Files to Your System:
+```
+scp /path/to/edb-postgresql*.rpm user@rhel-system:/path/to/destination/
+```
+
+2. Install the RPM Locally:
+```
+sudo yum localinstall /path/to/edb-postgresql*.rpm
+```
+
+3. Alternatively, Use `rpm` for Manual Dependency Resolution:
+```
+sudo rpm -ivh /path/to/edb-postgresql*.rpm
+```
+
+4. Start and Enable PostgreSQL Service:
+```
+sudo systemctl start edb-as
+sudo systemctl enable edb-as
+```
+
+5. Verify Installation:
+```
+psql --version
+```
+
+6. Login to PostgreSQL:
+```
+sudo -i -u postgres
+psql
 ```
 
 ### Useful Links:
