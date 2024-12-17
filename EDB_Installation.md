@@ -92,8 +92,7 @@ psql
 
 ---
 
-> # Download and Install JBoss Wildfly  
-[Official Download Link](https://www.wildfly.org/downloads/)
+<hr>
 
 ### Find Resources by Name:
 ```
@@ -142,7 +141,42 @@ sudo -i -u postgres
 psql
 ```
 
----
+<hr>
+
+> # Download and Install JBoss Wildfly  
+[Official Download Link](https://www.wildfly.org/downloads/)
+
+#### Extract Files:
+```
+mkdir EDB && tar -zxvf your_file.tar.gz -C EDB
+```
+
+### Necessary charging on this Locations:
+1. **Deploy EAR Files**:  
+   `/opt/jboss/wildfly-34.0.1.Final/standalone/deployments/`
+2. **Server Configuration**:  
+   `/opt/jboss/wildfly-34.0.1.Final/standalone/configuration/standalone.xml`
+3. **Start Wildfly JBoss**:  
+   `/opt/jboss/wildfly-34.0.1.Final/bin/add-user.sh`  
+   `/opt/jboss/wildfly-34.0.1.Final/bin/standalone.sh`
+
+#### Export path
+```
+export JAVA_HOME=/opt/jdk-23.0.1
+export PATH=$JAVA_HOME/bin:$PATH
+
+export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+export PATH=$JBOSS_HOME/bin:$PATH
+```
+
+#### Update Environment Variables:
+```
+vim /etc/profile
+vim ~/.bashrc
+
+source /etc/profile
+source ~/.bashrc
+```
 
 ### Run JBoss in the Background:
 ```
@@ -161,51 +195,11 @@ kill -9 <PID>
 screen -r jboss
 ```
 
----
-
-### Environment Configuration  
-#### Extract Files:
-```
-mkdir EDB && tar -zxvf your_file.tar.gz -C EDB
-```
-
-#### Update Environment Variables:
-```
-vim /etc/profile
-vim ~/.bashrc
-
-source /etc/profile
-source ~/.bashrc
-```
-
-#### Example:
-```
-export JAVA_HOME=/opt/jdk-23.0.1
-export PATH=$JAVA_HOME/bin:$PATH
-
-export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
-export PATH=$JBOSS_HOME/bin:$PATH
-```
-
----
 
 ### Start pgAdmin:
 ```
 systemctl start httpd
 ```
-
----
-
-### Important Locations:
-1. **Deploy EAR Files**:  
-   `/opt/jboss/wildfly-34.0.1.Final/standalone/deployments/`
-2. **Server Configuration**:  
-   `/opt/jboss/wildfly-34.0.1.Final/standalone/configuration/standalone.xml`
-3. **Start Wildfly JBoss**:  
-   `/opt/jboss/wildfly-34.0.1.Final/bin/add-user.sh`  
-   `/opt/jboss/wildfly-34.0.1.Final/bin/standalone.sh`
-
----
 
 ### Useful Links:
 - [Video Tutorial 1](https://youtu.be/OnYyh6hVFTA?si=qm4tkzGsDZ7A-h7H)  - [Video Tutorial 2](https://youtu.be/1f6hROjDScw?si=7F0e5U2xiPUte4uA)  - [Video Tutorial 3](https://youtu.be/ZKzzK1CsN6I?si=N0u0OobujtVrAlZG)  - [Video Tutorial 4](https://youtu.be/BF0pbJ2nP1I?si=dhwvoedmAapZPvvJ)
