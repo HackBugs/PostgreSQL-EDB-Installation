@@ -202,7 +202,12 @@ systemctl start httpd
 ```
 
 ### Useful Links:
-- [Video Tutorial 1](https://youtu.be/OnYyh6hVFTA?si=qm4tkzGsDZ7A-h7H)  - [Video Tutorial 2](https://youtu.be/1f6hROjDScw?si=7F0e5U2xiPUte4uA)  - [Video Tutorial 3](https://youtu.be/ZKzzK1CsN6I?si=N0u0OobujtVrAlZG)  - [Video Tutorial 4](https://youtu.be/BF0pbJ2nP1I?si=dhwvoedmAapZPvvJ) - [Install PostgreSQL](https://youtu.be/uszxCSlqANU?si=LfAc6RYFi8gy3fxH)
+
+- [JBoss/Wildfly Application Server Installation in Linux](https://youtu.be/OnYyh6hVFTA?si=qm4tkzGsDZ7A-h7H)  
+- [JBoss/WildFly Installation and Deployments on Linux](https://youtu.be/1f6hROjDScw?si=7F0e5U2xiPUte4uA)  
+- [Jboss EAP 7 - Configure (Apache httpd) mod_cluster](https://youtu.be/ZKzzK1CsN6I?si=N0u0OobujtVrAlZG)  
+- [Jboss EAP 7 - datasource (postgresql) configurations](https://youtu.be/BF0pbJ2nP1I?si=dhwvoedmAapZPvvJ) 
+- [PostgreSQL DBA: How to Install and Configure PostgreSQL 16 on Redhat/RHELL](https://youtu.be/uszxCSlqANU?si=LfAc6RYFi8gy3fxH)
 
 --- 
 
