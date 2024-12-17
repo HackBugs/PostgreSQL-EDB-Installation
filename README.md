@@ -2,20 +2,22 @@
 
 > ## All file hyperlinks
 
-- [Commands.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/Commands.md)  
-- [DBeaver Tool.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/DBeaver%20Tool.md)  
-- [DevOps Tools.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/DevOps%20Tools.md)  
-- [EDB - Oracle aur PostgreSQL ke queries.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/EDB%20-%20Oracle%20aur%20PostgreSQL%20ke%20queries.md)  
-- [EDB Subscription Software.png](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/EDB%20Subscription%20Software.png)  
-- [EDB database.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/EDB%20database.md)  
-- [JBoss (WildFly) Installation Script.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/JBoss%20(WildFly)%20Installation%20Script.md)  
-- [PostgreSQL database.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/PostgreSQL%20database.md)  
-- [Red_Hat_JBoss_Enterprise_Application_Platform-7.0-Installation_Guide-en-US.pdf](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/Red_Hat_JBoss_Enterprise_Application_Platform-7.0-Installation_Guide-en-US.pdf)  
-- [TIBCO Software.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/TIBCO%20Software.md)  
-- [Tools-Ports-and-IP.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/Tools-Ports-and-IP.md)  
-- [UFW-Allow.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/UFW-Allow.md)  
-- [apt-dnf-yum.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/apt-dnf-yum.md)  
-- [pgAdmin Install.md](https://github.com/HackBugs/PostgreSQL-EDB-firewall-cmd.md/blob/main/Other%20Files/pgAdmin%20Install.md)
+[Commands.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Commands.md)  
+[Postgresql EDB installation](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Postgresql%20EDB%20installation.md)  
+[DBeaver Tool.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/DBeaver%20Tool.md)  
+[DevOps Tools.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/DevOps%20Tools.md)  
+[EDB - Oracle aur PostgreSQL ke queries.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/EDB%20-%20Oracle%20aur%20PostgreSQL%20ke%20queries.md)  
+[EDB Subscription Software.png](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/EDB%20Subscription%20Software.png)  
+[EDB database.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/EDB%20database.md)  
+[JBoss (WildFly) Installation Script.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/JBoss%20(WildFly)%20Installation%20Script.md)  
+[PostgreSQL database.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/PostgreSQL%20database.md)  
+[Red_Hat_JBoss_Enterprise_Application_Platform-7.0-Installation_Guide-en-US.pdf](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Red_Hat_JBoss_Enterprise_Application_Platform-7.0-Installation_Guide-en-US.pdf)  
+[TIBCO Software.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/TIBCO%20Software.md)  
+[Tools-Ports-and-IP.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/Tools-Ports-and-IP.md)  
+[UFW-Allow.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/UFW-Allow.md)  
+[apt-dnf-yum.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/apt-dnf-yum.md)  
+[pgAdmin Install.md](https://github.com/HackBugs/PostgreSQL-EDB-Installation/blob/main/Other%20Files/pgAdmin%20Install.md)  
+
 
 ---
 
