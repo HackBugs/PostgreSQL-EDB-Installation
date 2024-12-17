@@ -92,7 +92,7 @@ psql
 
 <hr>
 
-# Useful Commands
+> # Useful Commands
 
 ### Find Resources by Name:
 ```
