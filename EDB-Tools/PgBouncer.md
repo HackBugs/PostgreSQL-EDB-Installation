@@ -7,6 +7,7 @@ ls | wc -l
 ls | grep edb-as15-server
 
 ## install PgBouncer
+
 yum install 
 ls | grep edb-pgbounce
 
