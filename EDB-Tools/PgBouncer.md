@@ -5,7 +5,7 @@ ls | wc -l
 ls | grep edb -as
 
 yum install 
-ls | grep edb-as15-server
+ls | grep edb-pgbounce
 
 pgbouncer -V
 psql --version
