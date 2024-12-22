@@ -2,7 +2,7 @@
 sudo yum -y install /opt/edb2/el_8_x86_64/*.rpm
 
 ls | wc -l
-ls | grep edb -as
+ls | grep edb-as15-server
 
 yum install 
 ls | grep edb-pgbounce
