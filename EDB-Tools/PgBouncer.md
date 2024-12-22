@@ -1,9 +1,12 @@
 ```
 sudo yum -y install /opt/edb2/el_8_x86_64/*.rpm
 
+## install EDB
+
 ls | wc -l
 ls | grep edb-as15-server
 
+## install PgBouncer
 yum install 
 ls | grep edb-pgbounce
 
