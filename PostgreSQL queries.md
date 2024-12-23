@@ -1,4 +1,4 @@
-
+ 
 > # For **EnterpriseDB (EDB)**, the process to change the database user password is quite similar to PostgreSQL. Here's how you can do it:
 
 ```bash
