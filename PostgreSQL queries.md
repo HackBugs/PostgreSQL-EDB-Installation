@@ -1,3 +1,33 @@
+
+> # Alter a database password in PostgreSQL or EDB:
+
+```bash
+# Step 1: Log in to the PostgreSQL database as a superuser
+psql -U postgres -d postgres
+
+# Step 2: Change the user's password
+ALTER USER username WITH PASSWORD 'new_password';
+
+# Replace 'username' with the target database user
+# Replace 'new_password' with the desired password
+
+# Step 3: Verify the password change by logging in with the updated credentials
+psql -U username -h localhost -d database_name
+
+# Step 4: If using PgBouncer, update the userlist.txt file
+sudo nano /etc/pgbouncer/userlist.txt
+
+# Add or update the line with:
+# "username" "new_password"
+
+# Step 5: Restart PgBouncer to apply changes
+sudo systemctl restart pgbouncer
+``` 
+
+Replace placeholders like `username` and `new_password` with your actual values.
+
+<hr>
+
 > # Important PostgreSQL queries and commands, categorized and explained for clarity:
 
 ---
