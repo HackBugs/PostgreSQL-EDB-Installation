@@ -26,6 +26,55 @@ sudo systemctl status edb-pgbouncer-1.23.service
 psql -h localhost -p 6432 -U username -d mydb
 ```
 
+Here’s the entire process to reset the password for a user in EnterpriseDB if you've forgotten it:
+
+```bash
+# Step 1: Switch to the EnterpriseDB superuser
+sudo su - enterprisedb
+
+# Step 2: Try logging into the database
+psql -U enterprisedb
+
+# If login fails, proceed with the following steps to modify authentication.
+
+# Step 3: Locate and edit the pg_hba.conf file
+sudo nano /var/lib/edb/as<version>/data/pg_hba.conf
+
+# Replace <version> with your EDB version, e.g., as13 for version 13.
+
+# Find the line:
+# host    all             all             127.0.0.1/32            md5
+
+# Change it to:
+# host    all             all             127.0.0.1/32            trust
+
+# Save and exit the file (Ctrl+O, Enter, Ctrl+X).
+
+# Step 4: Restart the EDB server to apply changes
+sudo systemctl restart edb-as<version>
+
+# Step 5: Log in without a password and reset the user's password
+psql -U enterprisedb
+ALTER USER username WITH PASSWORD 'new_password';
+
+# Replace 'username' with the target user and 'new_password' with the desired password.
+
+# Step 6: Revert changes in pg_hba.conf to secure the connection
+sudo nano /var/lib/edb/as<version>/data/pg_hba.conf
+
+# Change the line back to:
+# host    all             all             127.0.0.1/32            md5
+
+# Save and exit the file.
+
+# Step 7: Restart the server again
+sudo systemctl restart edb-as<version>
+
+# Password reset is complete, and the authentication method is secured.
+```
+
+Replace `<version>`, `username`, and `new_password` with appropriate values. Let me know if you need further assistance!
+
 <hr>
 
 > # For **EnterpriseDB (EDB)**, the process to change the database user password is quite similar to PostgreSQL. Here's how you can do it:
