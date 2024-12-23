@@ -1,4 +1,4 @@
-> # Sometime unable to vi file getting error
+> ## Sometime unable to vi file getting error
 > ### This error indicates that a swap file (.edb-pgbouncer-1.23.ini.swp) was left behind, possibly due to a previous crash or an unclean exit while editing the edb-pgbouncer-1.23.ini file. Here's how to resolve it:
 
 # Step 1: Check if another process is editing the file
