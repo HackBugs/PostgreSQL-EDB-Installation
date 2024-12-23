@@ -1,37 +1,4 @@
- 
-> # For **EnterpriseDB (EDB)**, the process to change the database user password is quite similar to PostgreSQL. Here's how you can do it:
 
-```bash
-# Step 1: Log in to the EDB database as a superuser
-psql -U enterprisedb -d edb
-
-# Replace 'enterprisedb' with your superuser name
-# Replace 'edb' with the database name if different
-
-# Step 2: Change the user's password
-ALTER USER username WITH PASSWORD 'new_password';
-
-# Replace 'username' with the target database user
-# Replace 'new_password' with the desired password
-
-# Step 3: Verify the password change by logging in with the updated credentials
-psql -U username -h localhost -d database_name
-
-# Replace 'username' and 'database_name' with appropriate values
-
-# Step 4: If using PgBouncer, update the userlist.txt file
-sudo nano /etc/pgbouncer/userlist.txt
-
-# Add or update the line with:
-# "username" "new_password"
-
-# Step 5: Restart PgBouncer to apply changes
-sudo systemctl restart pgbouncer
-```
-
-Replace placeholders like `username` and `new_password` with your actual values.
-
-<hr>
 
 > # Important PostgreSQL queries and commands, categorized and explained for clarity:
 
