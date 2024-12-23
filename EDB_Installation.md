@@ -428,3 +428,33 @@ psql
 <hr>
 --->
 
+<hr>
+
+> # COMMANDS
+
+check all running services on Linux, formatted in a code box:
+
+```bash
+# For Systemd (modern Linux distributions)
+systemctl list-units --type=service --state=running
+
+# To list all services (running, stopped, or failed)
+systemctl list-units --type=service
+
+# To check detailed status of a specific service
+systemctl status <service_name>
+
+# For SysVinit (older Linux distributions)
+service --status-all | grep running
+
+# To check the status of a specific service
+service <service_name> status
+
+# For Upstart (used in some older Ubuntu versions)
+initctl list
+
+# To check the status of a specific service
+initctl status <service_name>
+``` 
+
+Replace `<service_name>` with the name of the service you want to inspect.
