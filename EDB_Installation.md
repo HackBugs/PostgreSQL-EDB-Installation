@@ -458,3 +458,57 @@ initctl status <service_name>
 ``` 
 
 Replace `<service_name>` with the name of the service you want to inspect.
+
+<hr>
+
+To allow ports `9990` and `8080` through the firewall in Linux, use the appropriate commands depending on your firewall management tool. Below are examples for **UFW**, **firewalld**, and **iptables**:
+
+### For UFW (Uncomplicated Firewall)
+```bash
+# Allow port 9990
+sudo ufw allow 9990
+
+# Allow port 8080
+sudo ufw allow 8080
+
+# Reload the firewall to apply changes (if necessary)
+sudo ufw reload
+
+# Check the status to confirm
+sudo ufw status
+```
+
+---
+
+### For firewalld
+```bash
+# Allow port 9990
+sudo firewall-cmd --permanent --add-port=9990/tcp
+
+# Allow port 8080
+sudo firewall-cmd --permanent --add-port=8080/tcp
+
+# Reload the firewall to apply changes
+sudo firewall-cmd --reload
+
+# Check the status to confirm
+sudo firewall-cmd --list-ports
+```
+
+---
+
+### For iptables
+```bash
+# Allow port 9990
+sudo iptables -A INPUT -p tcp --dport 9990 -j ACCEPT
+
+# Allow port 8080
+sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+
+# Save the changes (varies by distribution)
+sudo iptables-save > /etc/iptables/rules.v4
+
+# Check the current rules
+sudo iptables -L -n -v
+```
+
