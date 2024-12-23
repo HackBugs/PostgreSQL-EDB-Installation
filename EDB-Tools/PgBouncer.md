@@ -1,3 +1,5 @@
+> # Installation of PgBouncer
+
 ```
 sudo yum -y install /opt/edb2/el_8_x86_64/*.rpm
 
