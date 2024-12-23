@@ -1,4 +1,4 @@
-> # Installation of PgBouncer
+> # Installation of PgBouncer [Link](https://www.enterprisedb.com/docs/pgbouncer/latest/02_configuration_and_usage/)
 
 ```
 sudo yum -y install /opt/edb2/el_8_x86_64/*.rpm
