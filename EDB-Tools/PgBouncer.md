@@ -22,3 +22,6 @@ systemctl list-units --type=service
 sudo systemctl start edb-pgbouncer-1.23.service
 sudo systemctl status edb-pgbouncer-1.23.service
 ```
+```
+psql -h localhost -p 6432 -U username -d mydb
+```
