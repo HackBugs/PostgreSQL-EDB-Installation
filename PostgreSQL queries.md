@@ -1,4 +1,7 @@
 
+```
+psql>\o showall.txt
+```
 
 > # Important PostgreSQL queries and commands, categorized and explained for clarity:
 
