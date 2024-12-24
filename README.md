@@ -1,5 +1,6 @@
 ```
 netstat -atpune | grep pgbouncer
+find / -type f -name "filename"
 ```
 
 <hr>
