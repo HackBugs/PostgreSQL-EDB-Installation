@@ -8,7 +8,7 @@ tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 
-pgbench -i enterprisedb
+pgbench -i my_testdb
 
 \du
 edb=# CREATE USER enterprisedb;
