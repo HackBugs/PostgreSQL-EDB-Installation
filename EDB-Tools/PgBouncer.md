@@ -7,6 +7,7 @@ sudo firewall-cmd --zone=public --add-port=6432/tcp --permanent
 sudo firewall-cmd --reload
 
 ping 192.168.237.5
+sudo netstat -tuln | grep 6432
 
 psql -p 6432 -h 192.168.237.5 pgbouncer
 psql -U pgbouncer -p 6432 -h 192.168.237.5 pgbouncer
