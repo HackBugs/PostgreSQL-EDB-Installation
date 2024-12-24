@@ -1,3 +1,4 @@
+### File Output Enable Karna
 
 ```
 psql>\o showall.txt
