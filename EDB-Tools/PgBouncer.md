@@ -28,6 +28,11 @@ edb=# show max_connections;
 ```
 ps aux | grep pgbouncer
 sudo systemctl restart edb-pgbouncer-1.23
+
+systemctl daemon-reload
+systemctl status edb-as-15.service
+systemctl restart edb-as-15.service
+
 psql -h 192.168.237.5 -p 6432 -U pgbouncer -c "RELOAD;"
 
 sudo firewall-cmd --zone=public --add-port=6432/tcp --permanent
