@@ -3,6 +3,71 @@
 psql>\o showall.txt
 ```
 
+### `psql` shell mein enter hone ke baad ek naya database create kar sakte hain, uska password set kar sakte hain aur uske liye ek user create karke us user ko admin privileges de sakte hain. Niche is process ke steps diye gaye hain:
+
+### Steps:
+
+1. **Postgres Shell Mein Enter Karein**:
+   Aap `su - enterprisedb` chalane ke baad `psql` mein enter kar chuke hain.
+
+2. **Naya Database Banayein**:
+   Database create karne ke liye:
+   ```sql
+   CREATE DATABASE my_database_name;
+   ```
+   Replace `my_database_name` apne database ke naam se.
+
+3. **Naya User Banayein aur Password Set Karein**:
+   Naya user banane ke liye aur uska password set karne ke liye:
+   ```sql
+   CREATE USER my_user_name WITH PASSWORD 'my_secure_password';
+   ```
+   Replace:
+   - `my_user_name` apne user ke naam se.
+   - `my_secure_password` apne password se.
+
+4. **User Ko Admin Privileges Dein**:
+   User ko `SUPERUSER` privilege dene ke liye:
+   ```sql
+   ALTER USER my_user_name WITH SUPERUSER;
+   ```
+
+5. **Database Ke Owner Ko Change Karein (Optional)**:
+   Agar aap chahte hain ki ye naya user is database ka owner ho:
+   ```sql
+   ALTER DATABASE my_database_name OWNER TO my_user_name;
+   ```
+
+6. **Changes Verify Karein**:
+   Verify karne ke liye:
+   - Show all users:
+     ```sql
+     \du
+     ```
+   - Show all databases:
+     ```sql
+     \l
+     ```
+
+### Example:
+Agar aapka database `mydb` hai aur user ka naam `admin_user` hai jiska password `admin123` hai, to commands kuch is tarah hongi:
+```sql
+CREATE DATABASE mydb;
+CREATE USER admin_user WITH PASSWORD 'admin123';
+ALTER USER admin_user WITH SUPERUSER;
+ALTER DATABASE mydb OWNER TO admin_user;
+```
+
+### Exit Karna:
+Postgres shell se bahar nikalne ke liye:
+```sql
+\q
+```
+
+Ab aapka database `mydb` tayar hai, aur `admin_user` ke paas admin privileges hain.
+
+<hr>
+
 > # Important PostgreSQL queries and commands, categorized and explained for clarity:
 
 ---
