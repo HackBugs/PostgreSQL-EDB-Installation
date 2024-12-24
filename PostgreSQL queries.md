@@ -1,3 +1,8 @@
+### show CMD
+```
+SHOW hba_file;
+```
+
 ### File Output Enable Karna
 
 ```
