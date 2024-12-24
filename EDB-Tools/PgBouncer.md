@@ -1,3 +1,14 @@
+
+```
+su - enterprise 
+/usr/edb/as15/bin/psql -p 6432 -h 192.168.237.5 pgbouncer
+
+show clients
+
+/usr/edb/as15/bin/psql -U enterprisedb -d my_testdb -p 6432
+password for user enterprisedb:
+```
+
 > # Installation of PgBouncer [Link](https://www.enterprisedb.com/docs/pgbouncer/latest/02_configuration_and_usage/)
 
 ```
