@@ -1,6 +1,17 @@
 ### show CMD
 ```
-SHOW hba_file;
+SHOW hba_file;         # Displays the path of the pg_hba.conf file
+SHOW config_file;      # Displays the path of the postgresql.conf file
+SHOW data_directory;   # Displays the path of the data directory
+SHOW server_version;   # Shows the PostgreSQL server version
+SHOW log_directory;    # Displays the directory where log files are stored
+SHOW listen_addresses; # Displays the IP addresses PostgreSQL is listening on
+SHOW port;             # Displays the port PostgreSQL is using
+SHOW timezone;         # Displays the current time zone setting
+SHOW max_connections;  # Shows the maximum number of connections allowed
+SHOW shared_buffers;   # Displays the size of shared memory buffer
+SHOW log_statement;    # Displays the log_statement setting (queries that are logged)
+SHOW autocommit;       # Displays whether autocommit is enabled or not
 ```
 
 ### File Output Enable Karna
