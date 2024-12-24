@@ -1,3 +1,7 @@
+```
+netstat -atpune | grep pgbouncer
+```
+
 <hr>
 
 > ## All file hyperlinks
