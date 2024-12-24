@@ -8,8 +8,13 @@ tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 
+\du
+CREATE USER enterprisedb;
+ALTER USER enterprisedb WITH PASSWORD 'admin';
+ALTER USER enterprisedb WITH SUPERUSER;
 SELECT usename, passwd FROM pg_shadow;
 
+Example -
 echo -n "enterprisedb"mypassword | md5sum
 "enterprisedb" "md5c9de1d8a0bd5c9a5e0bd6fcb9e37309f"
 ```
