@@ -9,6 +9,11 @@ sudo firewall-cmd --reload
 ping 192.168.237.5
 
 psql -p 6432 -h 192.168.237.5 pgbouncer
+psql -U pgbouncer -p 6432 -h 192.168.237.5 pgbouncer
+
+auth_type = md5
+auth_file = /etc/edb/pgbouncer1.23/userlist.txt
+Path - /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
 
 su - enterprise 
 /usr/edb/as15/bin/psql -p 6432 -h 192.168.237.5 pgbouncer
