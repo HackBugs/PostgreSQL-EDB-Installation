@@ -45,6 +45,7 @@ psql -p 6432 -h 192.168.237.5 pgbouncer
 psql -U pgbouncer -p 6432 -h 192.168.237.5 pgbouncer
 
 psql -p 6432 -h 192.168.1.71 -U root edb-pgbouncer-1.23
+psql -h 192.168.1.71 -U enterprisedb -p 6432 edb-pgbouncer-1.23
 
 auth_type = md5
 auth_file = /etc/edb/pgbouncer1.23/userlist.txt
