@@ -4,7 +4,7 @@
 psql>\o showall.txt
 
 SELECT current_user;
-SELECT pg_reload_conf();
+SELECT pg_reload_conf(); // pg_reload_conf() is a function in PostgreSQL that reloads the configuration files.
 ```
 
 
