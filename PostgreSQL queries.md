@@ -1,4 +1,4 @@
-### show CMD
+###  `SHOW` commands with the specific parameters to check certain values or files:
 ```
 SHOW hba_file;              -- Path to the pg_hba.conf file
 SHOW config_file;           -- Path to the postgresql.conf file
