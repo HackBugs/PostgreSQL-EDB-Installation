@@ -2,7 +2,10 @@
 
 ```
 psql>\o showall.txt
+
+SELECT current_user;
 ```
+
 
 ### `psql` shell mein enter hone ke baad ek naya database create kar sakte hain, uska password set kar sakte hain aur uske liye ek user create karke us user ko admin privileges de sakte hain. Niche is process ke steps diye gaye hain:
 
