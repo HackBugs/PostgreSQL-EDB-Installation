@@ -4,6 +4,7 @@
 psql>\o showall.txt
 
 SELECT current_user;
+SELECT pg_reload_conf();
 ```
 
 
