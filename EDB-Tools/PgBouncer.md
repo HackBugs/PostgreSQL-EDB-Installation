@@ -1,3 +1,8 @@
+```
+vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
+admin_users = enterprisedb
+stats_users = enterprisedb
+```
 
 ```
 ps aux | grep pgbouncer
