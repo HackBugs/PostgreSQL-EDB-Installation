@@ -1,5 +1,7 @@
 ```
 vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
+Vim /pgdata/data/pg_hba.conf
+
 admin_users = enterprisedb
 stats_users = enterprisedb
 
