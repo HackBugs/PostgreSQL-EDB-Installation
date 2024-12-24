@@ -2,6 +2,7 @@
 ```
 ps aux | grep pgbouncer
 sudo systemctl restart edb-pgbouncer-1.23
+psql -h 192.168.237.5 -p 6432 -U pgbouncer -c "RELOAD;"
 
 sudo firewall-cmd --zone=public --add-port=6432/tcp --permanent
 sudo firewall-cmd --reload
@@ -23,6 +24,9 @@ show clients
 
 /usr/edb/as15/bin/psql -U enterprisedb -d my_testdb -p 6432
 password for user enterprisedb:
+
+sudo chmod 600 /etc/edb/pgbouncer1.23/userlist.txt
+sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
 ```
 
 > # Installation of PgBouncer [Link](https://www.enterprisedb.com/docs/pgbouncer/latest/02_configuration_and_usage/)
