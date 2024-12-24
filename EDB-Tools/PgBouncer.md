@@ -2,6 +2,11 @@
 vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
 admin_users = enterprisedb
 stats_users = enterprisedb
+
+Check log -
+tail -f /var/log/edb-pgbouncer-1.23/pgbouncer.log
+
+psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 ```
 
 ```
