@@ -1,17 +1,30 @@
 ### show CMD
 ```
-SHOW hba_file;         # Displays the path of the pg_hba.conf file
-SHOW config_file;      # Displays the path of the postgresql.conf file
-SHOW data_directory;   # Displays the path of the data directory
-SHOW server_version;   # Shows the PostgreSQL server version
-SHOW log_directory;    # Displays the directory where log files are stored
-SHOW listen_addresses; # Displays the IP addresses PostgreSQL is listening on
-SHOW port;             # Displays the port PostgreSQL is using
-SHOW timezone;         # Displays the current time zone setting
-SHOW max_connections;  # Shows the maximum number of connections allowed
-SHOW shared_buffers;   # Displays the size of shared memory buffer
-SHOW log_statement;    # Displays the log_statement setting (queries that are logged)
-SHOW autocommit;       # Displays whether autocommit is enabled or not
+SHOW hba_file;              -- Path to the pg_hba.conf file
+SHOW config_file;           -- Path to the postgresql.conf file
+SHOW data_directory;        -- Path to the data directory
+SHOW server_version;        -- PostgreSQL server version
+SHOW log_directory;         -- Path to the log directory
+SHOW listen_addresses;      -- IP addresses PostgreSQL is listening on
+SHOW port;                  -- Port PostgreSQL is using
+SHOW timezone;              -- Current timezone setting
+SHOW max_connections;       -- Maximum allowed connections
+SHOW shared_buffers;        -- Size of shared memory buffer
+SHOW log_statement;         -- Type of statements to log (e.g., 'all', 'none', etc.)
+SHOW autocommit;            -- Whether autocommit is enabled
+SHOW unix_socket_directories; -- List of directories to use for Unix domain sockets
+SHOW lc_messages;           -- Language setting for messages
+SHOW lc_monetary;           -- Language setting for monetary values
+SHOW lc_numeric;            -- Language setting for numeric values
+SHOW lc_time;               -- Language setting for time formatting
+SHOW work_mem;              -- Amount of memory used for each query operation
+SHOW temp_buffers;          -- Size of temporary buffers used by queries
+SHOW statement_timeout;     -- Time limit for query execution
+SHOW dynamic_library_path;  -- Path to dynamic libraries
+SHOW default_transaction_isolation; -- Default transaction isolation level
+SHOW enable_seqscan;        -- Whether sequential scans are allowed
+SHOW client_encoding;       -- Client encoding in use
+
 ```
 
 ### File Output Enable Karna
