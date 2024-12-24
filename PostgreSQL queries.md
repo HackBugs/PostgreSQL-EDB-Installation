@@ -24,7 +24,6 @@ SHOW dynamic_library_path;  -- Path to dynamic libraries
 SHOW default_transaction_isolation; -- Default transaction isolation level
 SHOW enable_seqscan;        -- Whether sequential scans are allowed
 SHOW client_encoding;       -- Client encoding in use
-
 ```
 
 ### File Output Enable Karna
