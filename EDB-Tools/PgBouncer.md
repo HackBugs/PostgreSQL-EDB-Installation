@@ -7,6 +7,8 @@ Check log -
 tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
+echo -n "enterprisedb"mypassword | md5sum
+"enterprisedb" "md5c9de1d8a0bd5c9a5e0bd6fcb9e37309f"
 ```
 
 ```
