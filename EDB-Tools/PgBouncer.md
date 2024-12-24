@@ -1,5 +1,15 @@
 
 ```
+ps aux | grep pgbouncer
+sudo systemctl restart edb-pgbouncer-1.23
+
+sudo firewall-cmd --zone=public --add-port=6432/tcp --permanent
+sudo firewall-cmd --reload
+
+ping 192.168.237.5
+
+psql -p 6432 -h 192.168.237.5 pgbouncer
+
 su - enterprise 
 /usr/edb/as15/bin/psql -p 6432 -h 192.168.237.5 pgbouncer
 
