@@ -1,7 +1,3 @@
-```
-netstat -atpune | grep pgbouncer
-find / -type f -name "filename"
-```
 
 > # COMMANDS
 
@@ -108,6 +104,9 @@ dpkg -l | wc -l
 
 ## All packages list count
 apt list | wc -l
+
+netstat -atpune | grep pgbouncer
+find / -type f -name "filename
 
 ```
 
