@@ -177,6 +177,8 @@ sudo systemctl list-units --type=service | grep pgbouncer
 ps aux | grep pgbouncer
 
 systemctl list-units --type=service
+sudo systemctl list-units --type=service --state=active
+sudo systemctl list-units --type=service --state=active | grep pgbouncer
 
 sudo systemctl start edb-pgbouncer-1.23.service
 sudo systemctl status edb-pgbouncer-1.23.service
