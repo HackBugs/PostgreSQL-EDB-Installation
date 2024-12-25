@@ -3,6 +3,7 @@
 ```
 touch ~/.pgpass
 chmod 0600 ~/.pgpass
+vi ~/.pgpass
 
 # example
 hostname:port:database:username:password
