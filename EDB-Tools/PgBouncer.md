@@ -10,6 +10,7 @@ Vim /pgdata/data/pg_hba.conf
 
 vi /pgdata/data/pg_hba.conf
 host    all     all     192.168.237.0/24   md5
+host    pgbouncer     pgbouncer     192.168.237.5/32   trust
 
 admin_users = enterprisedb
 stats_users = enterprisedb
