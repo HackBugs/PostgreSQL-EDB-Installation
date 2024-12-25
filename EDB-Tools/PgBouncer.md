@@ -173,6 +173,9 @@ psql --version
 Check PgBouncer Logs - journalctl -u pgbouncer.service -n 50
  
 find /etc/systemd/system/ /lib/systemd/system/ -name '*pgbouncer*'
+sudo systemctl list-units --type=service | grep pgbouncer
+ps aux | grep pgbouncer
+
 systemctl list-units --type=service
 
 sudo systemctl start edb-pgbouncer-1.23.service
