@@ -1,4 +1,4 @@
-> ## Aapko jo error mil raha hai (java.awt.HeadlessException) wo isliye hai kyunki aap terminal/command line se GUI (Graphical User Interface) application ko run karne ki koshish kar rahe hain, aur aapke system me GUI support nahi hai (headless mode me chal raha hai). JBoss installer ko GUI ki zarurat hoti hai, jo terminal ke through available nahi hota.
+> # Aapko jo error mil raha hai (java.awt.HeadlessException) wo isliye hai kyunki aap terminal/command line se GUI (Graphical User Interface) application ko run karne ki koshish kar rahe hain, aur aapke system me GUI support nahi hai (headless mode me chal raha hai). JBoss installer ko GUI ki zarurat hoti hai, jo terminal ke through available nahi hota.
 
 ### Solution:
 Aapko **headless mode** me installer ko run karna hoga, ya phir GUI ko disable karte hue installer ko run karna hoga.
@@ -43,3 +43,13 @@ Agar aapko GUI ki zarurat hai aur aap graphical interface wale system pe kaam ka
    ```bash
    java -jar jboss-eap-8.0.0-installer.jar
    ```
+
+<hr>
+
+> # How to Install GUI Package & Switch From CLI to GUI in Redhat Linux 8 Server
+
+```
+yum repo list
+yum install 'dnf-command(repo)'
+yum groupinstall "Server with GUI"
+```
