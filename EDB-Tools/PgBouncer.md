@@ -1,8 +1,11 @@
+> # Useful commands for EDB-PgBouncer
+
 ```
 /var/run/edb/pgbouncer1.23/edb-pgbouncer-1.23.pid
 /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 
-vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
+sudo vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
+sudo vim /usr/lib/systemd/system/edb-pgbouncer-1.23.service
 Vim /pgdata/data/pg_hba.conf
 
 admin_users = enterprisedb
@@ -10,7 +13,9 @@ stats_users = enterprisedb
 
 Check log -
 tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
+sudo journalctl -u edb-pgbouncer-1.23.service
 journalctl -xe | grep edb-pgbouncer-1.23
+
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 
@@ -65,11 +70,77 @@ show clients
 /usr/edb/as15/bin/psql -U enterprisedb -d my_testdb -p 6432
 password for user enterprisedb:
 ---------------------------------------------------------------------
+## PID file deleted
+
+sudo mkdir -p /var/run/edb/pgbouncer1.23
+sudo chown pgbouncer:pgbouncer /var/run/edb/pgbouncer1.23
+sudo chmod 755 /var/run/edb/pgbouncer1.23
+
+sudo -u pgbouncer /usr/edb/pgbouncer1.23/bin/pgbouncer /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
 
 sudo chmod 600 /etc/edb/pgbouncer1.23/userlist.txt
 sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
 ```
 
+<hr>
+
+> # Script uninstallation of edb-pgbouncer-1.23 from your system. 
+
+```
+#!/bin/bash
+
+# Stop the PgBouncer service
+echo "Stopping PgBouncer service..."
+sudo systemctl stop edb-pgbouncer-1.23
+
+# Disable the PgBouncer service
+echo "Disabling PgBouncer service..."
+sudo systemctl disable edb-pgbouncer-1.23
+
+# Uninstall using Package Manager (RHEL/CentOS/Fedora)
+echo "Uninstalling PgBouncer using package manager..."
+
+# Check if installed with yum or dnf
+if command -v yum >/dev/null 2>&1; then
+    sudo yum remove -y edb-pgbouncer-1.23
+elif command -v dnf >/dev/null 2>&1; then
+    sudo dnf remove -y edb-pgbouncer-1.23
+else
+    echo "Package manager not found. Skipping package removal step."
+fi
+
+# Check if installed with rpm
+if rpm -qa | grep -q pgbouncer; then
+    sudo rpm -e edb-pgbouncer-1.23
+else
+    echo "PgBouncer package not found in RPM database. Skipping RPM removal."
+fi
+
+# Remove residual files
+echo "Removing residual files..."
+sudo rm -rf /etc/edb/pgbouncer1.23/
+sudo rm -rf /var/log/edb/pgbouncer1.23/
+sudo rm -rf /usr/edb/pgbouncer1.23/
+sudo rm -f /usr/local/bin/pgbouncer
+sudo rm -f /usr/local/etc/pgbouncer
+sudo rm -f /var/log/edb/pgbouncer1.23/
+
+# Remove systemd service files
+echo "Removing systemd service files..."
+sudo rm -f /etc/systemd/system/edb-pgbouncer-1.23.service
+
+# Reload systemd configuration
+echo "Reloading systemd configuration..."
+sudo systemctl daemon-reload
+
+# Verify removal
+echo "Verifying PgBouncer removal..."
+if ! command -v pgbouncer >/dev/null 2>&1; then
+    echo "PgBouncer has been successfully removed."
+else
+    echo "PgBouncer is still installed. Please check manually."
+fi
+```
 <hr>
 
 > # Installation of PgBouncer [Link](https://www.enterprisedb.com/docs/pgbouncer/latest/02_configuration_and_usage/)
@@ -102,7 +173,7 @@ sudo systemctl status edb-pgbouncer-1.23.service
 psql -h localhost -p 6432 -U username -d mydb
 ```
 
-Here’s the entire process to reset the password for a user in EnterpriseDB if you've forgotten it:
+> # Here’s the entire process to reset the password for a user in EnterpriseDB if you've forgotten it:
 
 ```bash
 # Step 1: Switch to the EnterpriseDB superuser
@@ -114,7 +185,7 @@ psql -U enterprisedb
 # If login fails, proceed with the following steps to modify authentication.
 
 # Step 3: Locate and edit the pg_hba.conf file
-sudo nano /var/lib/edb/as<version>/data/pg_hba.conf
+sudo vim /var/lib/edb/as<version>/data/pg_hba.conf
 
 # Replace <version> with your EDB version, e.g., as13 for version 13.
 
