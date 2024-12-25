@@ -52,8 +52,13 @@ Agar aapko GUI ki zarurat hai aur aap graphical interface wale system pe kaam ka
 yum repo list
 yum install 'dnf-command(repo)'
 yum groupinstall "Server with GUI"
+sudo dnf groupinstall "Server with GUI"
+
+systemctl list-units --type=target
+sudo systemctl set-default graphical.target
 init 6 // reboot
 runlevel
+sudo systemctl set-default multi-user.target
 systemctl set-default graphical-target
 init 6 // reboot
 ```
