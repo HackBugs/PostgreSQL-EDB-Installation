@@ -59,7 +59,7 @@ sudo systemctl set-default graphical.target
 init 6 // reboot
 runlevel
 sudo systemctl set-default multi-user.target
-systemctl set-default graphical-target
+sudo systemctl set-default graphical.target
 init 6 // reboot
 ```
 
