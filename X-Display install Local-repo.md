@@ -70,48 +70,20 @@ Yahan par ek simple bash script diya gaya hai jo aapko local repository banane a
 ### Bash Script: `create_local_repo.sh`
 
 ```bash
-#!/bin/bash
+cd /etc/yum.repos.d/
+touch local.repo
+vim local.repo
 
-# Variables
-REPO_DIR="/home/user/local-repo"
-RPM_DIR="/path/to/your/rpm/files"  # RPM files ka path yahan dein
-REPO_FILE="/etc/yum.repos.d/local.repo"
-
-# 1. Local repository directory banayein (agar pehle se nahi hai)
-echo "Creating local repository directory..."
-mkdir -p $REPO_DIR
-
-# 2. RPM files ko local repository folder mein copy karein
-echo "Copying RPM files to local repository..."
-cp $RPM_DIR/*.rpm $REPO_DIR/
-
-# 3. createrepo tool install karein (agar pehle se nahi hai)
-echo "Installing createrepo tool..."
-sudo dnf install -y createrepo
-
-# 4. Local repository ke liye metadata create karein
-echo "Creating repository metadata..."
-createrepo $REPO_DIR/
-
-# 5. Local repository ko configure karein
-echo "Configuring local repository..."
-sudo bash -c "cat > $REPO_FILE << EOF
 [local-repo]
 name=Local Repository
-baseurl=file://$REPO_DIR
+baseurl=file:///opt/edb2/el_8_x86_64
 enabled=1
 gpgcheck=0
-EOF"
 
-# 6. Local repository se package install karein
-echo "Installing RPM packages from local repository..."
-sudo dnf install -y --disablerepo=* --enablerepo=local-repo *.rpm
+sudo dnf clean all
 
-# 7. Verification
-echo "Packages installed from local repository:"
-rpm -qa | grep -i pgbouncer  # Replace with package name if needed
-
-echo "Script completed successfully!"
+sudo dnf install package-name
+rpm -q package-name
 ```
 
 <hr>
