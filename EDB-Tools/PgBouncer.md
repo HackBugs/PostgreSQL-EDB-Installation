@@ -88,6 +88,9 @@ sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
 
 - sudo dnf remove edb-pgbouncer*
 
+- rpm -qa | grep pgbouncer
+- sudo rpm -e edb-pgbouncer116-1.16.1.0-2.rhel8.x86_64
+
 ```
 #!/bin/bash
 
