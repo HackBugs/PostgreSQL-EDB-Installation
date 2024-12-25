@@ -53,3 +53,5 @@ yum repo list
 yum install 'dnf-command(repo)'
 yum groupinstall "Server with GUI"
 ```
+
+> # REHL Minimal Install Without GUI
