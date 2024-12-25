@@ -8,6 +8,9 @@ sudo vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
 sudo vim /usr/lib/systemd/system/edb-pgbouncer-1.23.service
 Vim /pgdata/data/pg_hba.conf
 
+vi /pgdata/data/pg_hba.conf
+host    all     all     192.168.237.0/24   md5
+
 admin_users = enterprisedb
 stats_users = enterprisedb
 
