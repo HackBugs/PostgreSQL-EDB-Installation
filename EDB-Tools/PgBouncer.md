@@ -1,6 +1,13 @@
 > # Useful commands for EDB-PgBouncer
 
 ```
+touch ~/.pgpass
+chmod 0600 ~/.pgpass
+
+# example
+hostname:port:database:username:password
+192.168.237.5:6432:pgbouncer:pgbouncer:yourpassword
+
 /var/run/edb/pgbouncer1.23/edb-pgbouncer-1.23.pid
 /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 
