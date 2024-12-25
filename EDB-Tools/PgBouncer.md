@@ -80,6 +80,10 @@ sudo -u pgbouncer /usr/edb/pgbouncer1.23/bin/pgbouncer /etc/edb/pgbouncer1.23/ed
 
 sudo chmod 600 /etc/edb/pgbouncer1.23/userlist.txt
 sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
+
+sudo mkdir -p /var/run/edb/pgbouncer
+sudo mkdir -p /var/log/edb/pgbouncer
+sudo mkdir -p /etc/pgbouncer/userlist.txt
 ```
 
 <hr>
