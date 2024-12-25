@@ -46,7 +46,7 @@ Agar aapko GUI ki zarurat hai aur aap graphical interface wale system pe kaam ka
 
 <hr>
 
-> # How to Install GUI Package & Switch From CLI to GUI in Redhat Linux 8 Server
+> # How to Install GUI Package & Switch From CLI to GUI in Redhat Linux 8 Server [Link](https://www.redhat.com/en/blog/configure-systemd-startup-targets)
 
 ```
 yum repo list
