@@ -7,6 +7,7 @@ stats_users = enterprisedb
 
 Check log -
 tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
+journalctl -xe | grep edb-pgbouncer-1.23
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 
