@@ -1,4 +1,7 @@
 ```
+/var/run/edb/pgbouncer1.23/edb-pgbouncer-1.23.pid
+/var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
+
 vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
 Vim /pgdata/data/pg_hba.conf
 
@@ -66,6 +69,8 @@ password for user enterprisedb:
 sudo chmod 600 /etc/edb/pgbouncer1.23/userlist.txt
 sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
 ```
+
+<hr>
 
 > # Installation of PgBouncer [Link](https://www.enterprisedb.com/docs/pgbouncer/latest/02_configuration_and_usage/)
 
