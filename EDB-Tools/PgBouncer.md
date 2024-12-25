@@ -40,7 +40,7 @@ edb=# ALTER USER enterprisedb WITH SUPERUSER;
 edb=# edb=# SELECT usename, passwd FROM pg_shadow;
 
 \l
-select md5 "'database_name'"
+select md5 ('database_name')
 
 Example -
 echo -n "enterprisedb"mypassword | md5sum
