@@ -86,6 +86,8 @@ sudo chown enterprisedb:enterprisedb /etc/edb/pgbouncer1.23/userlist.txt
 
 > # Script uninstallation of edb-pgbouncer-1.23 from your system. 
 
+- sudo dnf remove edb-pgbouncer*
+
 ```
 #!/bin/bash
 
