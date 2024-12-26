@@ -1,6 +1,11 @@
 > # Useful commands for EDB-PgBouncer
 
 ```
+sudo firewall-cmd --permanent --add-port=6432/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+ping 192.168.237.5
+
 edb=# \password enterprisedb
 
 touch ~/.pgpass
@@ -383,3 +388,91 @@ sudo iptables-save > /etc/iptables/rules.v4
 # Check the current rules
 sudo iptables -L -n -v
 ```
+
+<hr>
+
+> # The `netstat` output confirms that PgBouncer is listening on port `6432` for both IPv4 and IPv6. However, your `psql` connection attempt still fails. Let’s investigate further.
+
+---
+
+### **Next Steps**
+
+#### **1. Verify Network Connectivity**
+   - Ensure the client machine (from where you're running `psql`) can reach the PgBouncer server:
+     ```bash
+     ping 192.168.237.5
+     ```
+   - If `ping` fails, the network configuration between the client and server needs to be fixed.
+
+#### **2. Verify Firewall Rules**
+   - Ensure the firewall is not blocking the connection:
+     ```bash
+     sudo firewall-cmd --list-ports
+     ```
+   - If port `6432` is not listed, allow it:
+     ```bash
+     sudo firewall-cmd --permanent --add-port=6432/tcp
+     sudo firewall-cmd --reload
+     ```
+
+#### **3. Verify `pgbouncer.ini` Configuration**
+   - Check the `pgbouncer.ini` file to ensure the database is configured correctly:
+     ```bash
+     vi /etc/pgbouncer/pgbouncer.ini
+     ```
+   - Under the `[databases]` section, verify that the database mapping is correct. For example:
+     ```ini
+     [databases]
+     postgres = host=127.0.0.1 port=5432 dbname=postgres
+     ```
+     - Ensure the `host` and `port` are correctly pointing to the PostgreSQL server.
+
+   - Save and restart PgBouncer:
+     ```bash
+     sudo systemctl restart pgbouncer
+     ```
+
+#### **4. Verify PostgreSQL Accessibility**
+   - Test connecting directly to PostgreSQL from the PgBouncer server:
+     ```bash
+     psql -h 127.0.0.1 -U enterprisedb -d postgres -p 5432
+     ```
+   - If this fails, check the PostgreSQL configuration:
+     - Verify `pg_hba.conf` allows connections:
+       ```bash
+       vi /var/lib/pgsql/data/pg_hba.conf
+       ```
+       Add an entry like:
+       ```
+       host    all     all     0.0.0.0/0     md5
+       ```
+     - Ensure PostgreSQL is listening on all interfaces by checking `postgresql.conf`:
+       ```bash
+       vi /var/lib/pgsql/data/postgresql.conf
+       ```
+       Update:
+       ```ini
+       listen_addresses = '*'
+       ```
+     - Restart PostgreSQL:
+       ```bash
+       sudo systemctl restart postgresql
+       ```
+
+#### **5. Verify PgBouncer Logs**
+   - Check the PgBouncer logs for detailed errors:
+     ```bash
+     tail -f /var/log/pgbouncer/pgbouncer.log
+     ```
+
+#### **6. Retest the Connection**
+   - Retry the `psql` connection through PgBouncer:
+     ```bash
+     psql -p 6432 -h 192.168.237.5 -U enterprisedb -d postgres
+     ```
+
+---
+
+### **Expected Outcome**
+- If everything is configured correctly, the `psql` command should succeed.
+- If it still fails, share the relevant error messages from the PgBouncer and PostgreSQL logs for further troubleshooting.
