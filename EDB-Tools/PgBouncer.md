@@ -34,6 +34,8 @@ journalctl -xe | grep edb-pgbouncer-1.23
 pgbouncer -v /etc/pgbouncer/pgbouncer.ini
 journalctl -xe -u pgbouncer.service
 
+cat /var/log/pgbouncer/pgbouncer.log
+
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
 
 pgbench -i my_testdb
