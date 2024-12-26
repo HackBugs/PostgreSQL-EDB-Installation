@@ -1,6 +1,8 @@
 > # Useful commands for EDB-PgBouncer
 
 ```
+edb=# \password enterprisedb
+
 touch ~/.pgpass
 chmod 0600 ~/.pgpass
 vi ~/.pgpass
