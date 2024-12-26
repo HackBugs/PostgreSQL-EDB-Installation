@@ -4,6 +4,7 @@
 switch root to enterprisedb
 su - enterprisedb
 psql -p 5444 -h 192.168.237.5 -U enterprisedb
+psql -p 5444 -h 192.168.237.5 -U enterprisedb -d postgres
 
 [database]
 edb = host=192.168.237.5 port=5444
