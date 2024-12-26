@@ -26,7 +26,6 @@ server_reset_query = DISCARD ALL
 ignore_startup_parameters = application_name
 max_client_conn = 100
 default_pool_size = 20
-
 ```
 
 > # Useful commands for EDB-PgBouncer
