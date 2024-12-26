@@ -1,6 +1,13 @@
 
 
 ```
+sudo vim /etc/edb/pgbouncer1.23/edb-pgbouncer-1.23.ini
+
+SHOW data_directory;
+vi /pgdata/data/pg_hba.conf
+host    all     all     192.168.237.0/24   md5
+host    pgbouncer     pgbouncer     192.168.237.5/32   trust
+
 switch root to enterprisedb
 su - enterprisedb
 psql -p 5444 -h 192.168.237.5 -U enterprisedb
