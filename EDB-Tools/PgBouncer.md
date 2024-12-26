@@ -1,3 +1,34 @@
+
+
+```
+switch root to enterprisedb
+su - enterprisedb
+psql -p 5444 -h 192.168.237.5 -U enterprisedb
+
+[database]
+edb = host=192.168.237.5 port=5444
+postgres = host=192.168.237.5 port=5432
+enterprisedb = host=192.168.237.5 port=5432
+postgres = host=192.168.237.5 port=5432 dbname=postgres
+acctg = host=192.168.237.5 port=5432 user=bob password=admin
+
+[pgbouncer]
+logfile = /var/log/pgbouncer/pgbouncer.log
+pidfile = /var/run/pgbouncer/pgbouncer.pid
+listen_addr = *
+listen_port = 6432
+auth_type = md5
+auth_file = /etc/pgbouncer/userlist.txt
+admin_users = enterprisedb
+stats_users = enterprisedb
+pool_mode = session
+server_reset_query = DISCARD ALL
+ignore_startup_parameters = application_name
+max_client_conn = 100
+default_pool_size = 20
+
+```
+
 > # Useful commands for EDB-PgBouncer
 
 ```
