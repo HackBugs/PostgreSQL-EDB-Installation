@@ -31,6 +31,7 @@ tail -f /var/log/edb/pgbouncer1.23/edb-pgbouncer-1.23.log
 sudo journalctl -u edb-pgbouncer-1.23.service
 journalctl -xe | grep edb-pgbouncer-1.23
 
+pgbouncer -v /etc/pgbouncer/pgbouncer.ini
 journalctl -xe -u pgbouncer.service
 
 psql -h 192.168.237.5 -p 6432 -U enterprisedb -c "RELOAD;"
