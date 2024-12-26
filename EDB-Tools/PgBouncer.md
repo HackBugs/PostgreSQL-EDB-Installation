@@ -57,6 +57,7 @@ edb=# edb=# SELECT usename, passwd FROM pg_shadow;
 
 \l
 select md5('database_name')
+SELECT 'md5' || md5('your_passwordedb')
 
 Example -
 echo -n "enterprisedb"mypassword | md5sum
