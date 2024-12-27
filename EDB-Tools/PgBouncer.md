@@ -106,7 +106,8 @@ edb=# show max_connections;
 
 ```
 ## Start Jboss
-
+------------------------------------------------------
+cd /opt/jboss/bin
 ps -ef | grep java
 kill -9 "PID"
 nohup ./standalone.sh --server-config standlone-ha.xml &
