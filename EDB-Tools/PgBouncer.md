@@ -105,6 +105,12 @@ edb=# show max_connections;
 ```
 
 ```
+ps -ef | grep java
+kill -9 "PID"
+nohup ./standalone.sh --server-config standlone-ha.xml &
+systemctl status edb-as*
+systemctl status pgbouncer
+
 ps aux | grep pgbouncer
 journalctl -u edb-pgbouncer-1.23
 sudo systemctl restart edb-pgbouncer-1.23
