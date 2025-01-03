@@ -16,17 +16,18 @@ systemctl stop httpd
 systemctl start httpd
 systemctl status httpd
 
-ps aux | grep httpd
-
-lsof -i :80
-netstat -tuln | grep :80
-ss -tuln | grep :80
-
-sudo kill -9 <PID>
+systemctl status firewalld.service
+systemctl stop firewalld.service
 
 vi /etc/httpd/conf/httpd.conf
 cd /var/www/html
 tail -n 20 /var/log/httpd/error_log
 vi /etc/hosts
+
+ps aux | grep httpd
+lsof -i :80
+netstat -tuln | grep :80
+ss -tuln | grep :80
+sudo kill -9 <PID>
 ```
 
