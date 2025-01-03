@@ -34,6 +34,8 @@ sudo kill -9 <PID>
 
 <hr>
 
+# 1. Scenario
+
 > Prompt
 
 > ## Mere paas ek website hai jo Java pe bani hui hai. Main EAR file deploy karta hoon JBoss par, aur wo do IP addresses pe run karti hai. Ek HTTPD server bhi hai jo alag IP par chal raha hai. Jab website par koi action hota hai, toh sabhi systems par data automatically update ho jata hai. Agar koi user kuch karta hai, toh wo change JBoss pe bhi reflect hota hai. Website jo dikh rahi hai, wo HTTPD server (domain ke IP) se access hoti hai, aur backend mein EDB database use hota hai.
@@ -123,6 +125,8 @@ sudo kill -9 <PID>
    - HTTPD server pe SSL setup karo taaki domain secure ho (Let's Encrypt ya DigiCert ke certificates use karo).
 
 <hr>
+
+# 2. Scenario
 
 > Real-life example
 
@@ -259,3 +263,47 @@ sudo kill -9 <PID>
 2. **SSL**: Domain secure karne ke liye HTTPD par SSL setup karo.
 3. **Monitoring**: Prometheus aur Grafana ka use kar ke HTTPD, JBoss, aur EDB ko monitor karein.
 
+<hr>
+
+# 3. Scenario
+
+1. **HTTPD Server (Reverse Proxy)**:
+   - HTTPD server ek entry point hai, jiska apna alag IP hai. Ye server aapke domain ko handle karta hai, matlab jab koi user aapke domain name (e.g., `www.example.com`) ko access karega, toh request sabse pehle HTTPD server tak pahuchegi.
+   - HTTPD server ka kaam yeh hai ki user ki request ko accept karke usse JBoss servers tak route kare. Yeh ek **reverse proxy** ke roop mein kaam karta hai. Matlab, HTTPD ko configure kiya gaya hai ki jab bhi koi request aaye, toh wo request backend servers (JBoss) pe forward ho.
+   - Reverse proxy ka fayda yeh hota hai ki user directly JBoss servers se connect nahi hota, balki wo pehle HTTPD server ke through jata hai, jo request ko manage karke JBoss servers tak forward karta hai.
+
+2. **Load Balancer (HTTPD server acting as Load Balancer)**:
+   - Agar aapke paas multiple JBoss servers hain (jaise 2 IPs, `192.168.1.10` aur `192.168.1.11`), toh HTTPD server unhe load balance kar sakta hai.
+   - Matlab jab ek user request karega, toh HTTPD server decide karega ki us request ko kaunsa JBoss server handle karega. Yeh process **load balancing** kehlaata hai.
+   - Example:
+     - Agar ek request aayi `http://www.example.com`, toh HTTPD server pehle check karega ki kaunsa JBoss server available hai, phir us request ko us server tak forward karega.
+     - Agar JBoss server 1 (`192.168.1.10`) busy ho, toh HTTPD server request ko JBoss server 2 (`192.168.1.11`) pe forward karega.
+
+3. **Example Configuration**:
+   - Maan lijiye aapka HTTPD server ka IP `192.168.1.20` hai, aur aapka domain `www.example.com` hai.
+   - Aapka JBoss server 1 ka IP `192.168.1.10` hai, aur JBoss server 2 ka IP `192.168.1.11` hai.
+   
+   HTTPD server ko aise configure kiya jayega:
+
+   ```apache
+   <VirtualHost *:80>
+       ServerName www.example.com
+
+       # Load balancing configuration
+       ProxyPass / http://192.168.1.10/
+       ProxyPassReverse / http://192.168.1.10/
+
+       ProxyPass / http://192.168.1.11/
+       ProxyPassReverse / http://192.168.1.11/
+   </VirtualHost>
+   ```
+
+   Is configuration mein:
+   - Jab bhi user `www.example.com` ko access karega, HTTPD server pehli request ko JBoss server 1 (`192.168.1.10`) pe forward karega, aur agar wo server busy hai, toh next request ko JBoss server 2 (`192.168.1.11`) pe forward karega.
+   - `ProxyPass` aur `ProxyPassReverse` directives ka use hota hai HTTPD ko reverse proxy aur load balancing ke liye configure karne ke liye.
+
+4. **End Result**:
+   - Jab user koi action karega, toh uska data JBoss server pe update hoga. JBoss ke dono servers mein data synchronization ka kaam ho sakta hai, jisse dono servers pe latest data available rahe.
+   - HTTPD server domain ke through request ko JBoss servers pe route karega, aur response ko user tak forward karega.
+
+Is setup se aapki website high availability aur load balancing ke sath smoothly chal paayegi.
