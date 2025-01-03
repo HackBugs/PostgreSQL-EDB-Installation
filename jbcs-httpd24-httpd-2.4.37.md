@@ -11,6 +11,7 @@ sudo firewall-cmd --permanent --add-port=80/tcp
 sudo firewall-cmd --permanent --add-port=8080/tcp
 sudo firewall-cmd --reload
 
+apachectl start
 systemctl restart httpd
 systemctl stop httpd
 systemctl start httpd
