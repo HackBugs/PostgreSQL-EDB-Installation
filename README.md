@@ -15,6 +15,10 @@ sudo ufw status
 
 ## EDB Database 
 3. /var/lib/edb/as<version>/data/pg_hba.conf
+- nano /var/lib/edb/as<version>/data/postgresql.conf
+- /var/log/edb/as<version>/postgresql.log
+- /etc/edb/efm-<version>/efm.properties
+- systemctl restart edb-as<version>
 
 > # COMMANDS
 
