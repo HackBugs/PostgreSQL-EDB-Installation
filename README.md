@@ -3,8 +3,18 @@
 sudo ufw allow from <Your_IP> to any port 8834
 
 telnet <Your_IP> 8834
-```
 
+Check allowlist
+sudo ufw status
+```
+## Apache
+1. Configuration file open karein (e.g., /etc/apache2/sites-available/your-site.conf).
+
+## Ngnix
+2. Configuration file open karein (e.g., /etc/nginx/sites-available/default).
+
+## EDB Database 
+3. /var/lib/edb/as<version>/data/pg_hba.conf
 
 > # COMMANDS
 
