@@ -1,3 +1,8 @@
+## IP Allow server side with particular port 
+```
+sudo ufw allow from <Your_IP> to any port 8834
+```
+
 
 > # COMMANDS
 
