@@ -2,7 +2,8 @@
 
 1. `Putty.exe` location
 2. Make `multiple shortcut` of PuTTY
-3. Save all shortcut with your ip adress as you understand 
+3. Save all shortcut with your ip adress as you understand
+4. Putty > Properties > shortcut > target > paste code here...
 
 ```
 "C:\Program Files\PuTTY\putty.exe" username@192.168.37.142 -pw Password 
