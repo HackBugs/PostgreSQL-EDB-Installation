@@ -58,6 +58,7 @@ After installation, you may want to start and enable the Zabbix server and agent
 
 ```bash
 sudo systemctl start zabbix-server zabbix-agent
+systemctl enable --now zabbix-agent httpd php-fpm
 sudo systemctl enable zabbix-server zabbix-agent
 ```
 
