@@ -361,11 +361,82 @@ If the issue persists, please provide the output of the following commands so I 
 2. `sudo cat /etc/httpd/conf.d/zabbix.conf`
 3. `sudo tail -n 20 /var/log/httpd/error_log`
 
-  
+<hr>
+
+> # Aap **RHEL 8** use kar rahe hain, lekin aap **RHEL 7 ka Remi repository** install kar rahe ho, is wajah se conflict ho raha hai.  
+Aapko **RHEL 8 ke liye sahi repository enable** karni padegi.  ✅
+
+---
+
+### **RHEL 8 me PHP 7.4 Install Karne ke Steps**
+
+#### **1. Purana PHP Remove Karo (Agar Installed Hai)**
+```bash
+sudo yum remove -y php php-cli php-common php-mysql
+```
+
+#### **2. EPEL & Remi Repository Enable Karo (RHEL 8)**
+```bash
+sudo yum install -y epel-release yum-utils
+sudo yum install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+```
+
+#### **3. Remi Repository Se PHP 7.4 Enable Karo**
+```bash
+sudo yum module reset php
+sudo yum module enable php:remi-7.4
+```
+
+## Aapka error **"All matches were filtered out by modular filtering"** ka matlab hai ki **RHEL 8 ka default module stream enabled hai**, jo **PHP 7.2** provide karta hai.  
+Aapko **PHP module reset karna hoga aur Remi repository ka PHP 7.4 module enable karna hoga**.  
+
+---
+
+### ** Solution: PHP 7.4 Install Karne ke Steps in RHEL 8**
+#### **1. PHP Module Reset Karo**
+```bash
+sudo yum module reset php -y
+```
+
+#### **2. PHP 7.4 ke Remi Repository Ko Enable Karo**
+```bash
+sudo yum module enable php:remi-7.4 -y
+```
+
+#### **3. PHP 7.4 Install Karo**
+```bash
+sudo yum install -y php php-cli php-mysqlnd php-common php-xml php-curl php-mbstring php-zip php-bcmath php-json
+```
+**⚠️ Note:** `php-mysql` ki jagah **`php-mysqlnd`** use karo, kyunki **RHEL 8 aur PHP 7.4 ke liye `php-mysqlnd` recommended hai**.
+
+#### **4. Verify Karo Ki PHP 7.4 Install Hua Hai**
+```bash
+php -v
+```
+Agar output me **PHP 7.4.x** dikhe, to installation successful hai.
+
+#### **5. Apache Restart Karo (Agar Required Hai)**
+Agar aap Apache (`httpd`) use kar rahe ho, to:
+```bash
+sudo systemctl restart httpd
+```
+
+---
+
+### **Agar `php -v` Me Abhi Bhi Purana Version Dikhe**
+```bash
+sudo alternatives --config php
+```
+Is command se manually **PHP 7.4 select** karo.  
+
+**Ab aapka error solve ho jana chahiye!** 🚀  
+Agar koi aur issue aaye to batao. 😊
+
+
 <hr>
 <hr>
 
-### **Search for Zabbix Packages**  ✅
+### **Search for Zabbix Packages** 
 ```bash
 yum search zabbix
 ```
