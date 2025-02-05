@@ -429,10 +429,6 @@ sudo alternatives --config php
 ```
 Is command se manually **PHP 7.4 select** karo.  
 
-**Ab aapka error solve ho jana chahiye!** 🚀  
-Agar koi aur issue aaye to batao. 😊
-
-
 <hr>
 <hr>
 
