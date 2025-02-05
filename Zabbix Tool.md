@@ -5,6 +5,88 @@
 - > **[install-zabbix-on-rhel-8/](https://www.tecmint.com/install-zabbix-on-rhel-8/)**
 - > **[how-to-install-zabbix-server-on-rhel-8-rhel-9/](https://tekneed.com/how-to-install-zabbix-server-on-rhel-8-rhel-9/)**
 
+### 1. **Enable the EPEL Repository**
+The Extra Packages for Enterprise Linux (EPEL) repository often contains packages that are not available in the default RHEL repositories. You can enable it by running:
+
+```bash
+sudo dnf install epel-release
+```
+
+### 2. **Enable the Zabbix Repository**
+Zabbix provides its own repository for RHEL-based systems. You can enable it by following these steps:
+
+1. **Install the Zabbix repository configuration package:**
+
+   For Zabbix 6.0 (LTS):
+   ```bash
+   sudo rpm -Uvh https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-4.el8.noarch.rpm
+   ```
+
+   For Zabbix 6.4 (latest stable):
+   ```bash
+   sudo rpm -Uvh https://repo.zabbix.com/zabbix/6.4/rhel/8/x86_64/zabbix-release-6.4-1.el8.noarch.rpm
+   ```
+
+2. **Clean the DNF cache:**
+   ```bash
+   sudo dnf clean all
+   ```
+
+3. **Update the repository metadata:**
+   ```bash
+   sudo dnf makecache
+   ```
+
+### 3. **Install the Zabbix Packages**
+After enabling the Zabbix repository, you should be able to install the required packages:
+
+```bash
+sudo dnf install zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent
+```
+
+### 4. **Verify the Installation**
+Once the installation is complete, you can verify that the packages are installed correctly:
+
+```bash
+rpm -q zabbix-server-pgsql zabbix-agent
+```
+
+### 5. **Start and Enable Services**
+After installation, you may want to start and enable the Zabbix server and agent services:
+
+```bash
+sudo systemctl start zabbix-server zabbix-agent
+sudo systemctl enable zabbix-server zabbix-agent
+```
+
+### 6. **Check the Status of Services**
+You can check the status of the services to ensure they are running correctly:
+
+```bash
+sudo systemctl status zabbix-server zabbix-agent
+```
+
+### 7. **Configure Firewall (if necessary)**
+If you have a firewall enabled, you may need to open the necessary ports for Zabbix:
+
+```bash
+sudo firewall-cmd --add-service={http,https} --permanent
+sudo firewall-cmd --add-port=10050/tcp --permanent
+sudo firewall-cmd --add-port=10051/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+### 8. **Access Zabbix Web Interface**
+Once everything is set up, you can access the Zabbix web interface by navigating to `http://your-server-ip/zabbix` in your web browser.
+
+### Troubleshooting
+- **Repository Issues:** If you still encounter issues, ensure that the Zabbix repository is correctly enabled by checking the contents of `/etc/yum.repos.d/zabbix.repo`.
+- **Package Versions:** Ensure that the package versions you are trying to install are compatible with your RHEL version.
+
+  
+<hr>
+<hr>
+
 ### **Search for Zabbix Packages**  
 ```bash
 yum search zabbix
