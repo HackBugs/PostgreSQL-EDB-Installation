@@ -110,6 +110,8 @@ If you want to clean up the existing PHP installation, you can remove it. Howeve
 
 ```bash
 sudo dnf remove php*
+sudo yum remove -y php php-cli php-common php-mysql
+
 ```
 
 ---
