@@ -1,3 +1,5 @@
+> # [Zabbix Download](https://www.zabbix.com/download?zabbix=6.0&os_distribution=red_hat_enterprise_linux&os_version=9&components=server_frontend_agent&db=pgsql&ws=apache)
+
 ### Troubleshooting Steps:
 
 #### 1. **Ensure your system is up to date**:
@@ -71,5 +73,3 @@ dnf install --skip-broken zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-con
 ```
 
 ---
-
-Let me know if any of these steps help!
