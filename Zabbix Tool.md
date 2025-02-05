@@ -1,7 +1,3 @@
-Here's an organized version of the troubleshooting steps:
-
----
-
 ### Troubleshooting Steps:
 
 #### 1. **Ensure your system is up to date**:
