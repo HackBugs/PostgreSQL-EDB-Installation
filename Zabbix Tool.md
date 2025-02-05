@@ -3,6 +3,7 @@
 ### **Download Zabbix**  
 - > **[Zabbix Download](https://www.zabbix.com/download?zabbix=6.0&os_distribution=red_hat_enterprise_linux&os_version=9&components=server_frontend_agent&db=pgsql&ws=apache)**
 - > **[install-zabbix-on-rhel-8/](https://www.tecmint.com/install-zabbix-on-rhel-8/)**
+- > **[how-to-install-zabbix-server-on-rhel-8-rhel-9/](https://tekneed.com/how-to-install-zabbix-server-on-rhel-8-rhel-9/)**
 
 ### **Search for Zabbix Packages**  
 ```bash
