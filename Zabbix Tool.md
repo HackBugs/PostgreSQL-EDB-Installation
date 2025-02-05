@@ -151,3 +151,31 @@ If you haven’t created the `zabbixuser` yet, use this query to create it:
 ```sql
 CREATE USER zabbixuser WITH PASSWORD '@#123';
 ```
+
+<hr>
+
+To modify the command to work with an EDB (EnterpriseDB) PostgreSQL database, you can use the following approach:
+
+1. Ensure that the EDB PostgreSQL client tools are installed and that you can connect to the database using `psql`.
+2. Update the command to ensure it's pointing to the correct database (`zabbix` in your case) and user.
+
+The adjusted command would look like this:
+
+```bash
+zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql -h <host> -U <username> -d zabbix
+```
+
+### Breakdown of the command:
+- `zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz`: Unzips and outputs the content of the `server.sql.gz` script.
+- `sudo -u zabbix`: Runs the command as the `zabbix` user (assuming this user has appropriate permissions).
+- `psql -h <host> -U <username> -d zabbix`: Connects to the PostgreSQL database `zabbix` (replace `<host>` with the appropriate hostname and `<username>` with the PostgreSQL user that has permissions to run the SQL script).
+
+If your EDB PostgreSQL database uses a specific user or password, you may also need to set the `PGPASSWORD` environment variable for authentication, like this:
+
+```bash
+export PGPASSWORD=<your_password>
+```
+
+And ensure you're using the correct username and database.
+
+Let me know if you need further clarification!
