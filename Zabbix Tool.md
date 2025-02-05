@@ -436,7 +436,7 @@ Agar koi aur issue aaye to batao. 😊
 <hr>
 <hr>
 
-### **Search for Zabbix Packages** 
+### **Search for Zabbix Packages** ✅
 ```bash
 yum search zabbix
 ```
