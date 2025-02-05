@@ -76,4 +76,78 @@ As the error suggests, you can also try installing the packages while skipping t
 dnf install --skip-broken zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-selinux-policy zabbix-agent
 ```
 
----
+<hr>
+
+
+In PostgreSQL (EDB), the syntax you provided for granting privileges and creating a user is not quite accurate. PostgreSQL has a different approach for both granting privileges and user creation.
+
+Here’s the corrected query for your request:
+
+1. **Grant all privileges on all tables in the schema `zabbix` to the user `zabbixuser`:**
+
+```sql
+GRANT ALL PRIVILEGES ON SCHEMA zabbix TO zabbixuser;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA zabbix TO zabbixuser;
+```
+
+2. **Create the user `zabbixuser` (if not already created), and set their password:**
+
+```sql
+CREATE USER zabbixuser WITH PASSWORD '@#123';
+```
+
+3. **Allow `zabbixuser` to connect from `localhost`:**
+
+```sql
+ALTER USER zabbixuser SET default_transaction_isolation = 'read committed';
+```
+
+In PostgreSQL, you don’t specify `@localhost` when creating a user for specific hosts (like MySQL). Instead, access is controlled through pg_hba.conf file configuration and roles. If you want to limit access to localhost, make sure your `pg_hba.conf` file is set up to allow connections from `localhost` for `zabbixuser`.
+
+You can also specify connection privileges using:
+
+```sql
+GRANT CONNECT ON DATABASE your_database TO zabbixuser;
+```
+
+<hr>
+
+The error `ERROR: schema "zabbix" does not exist` means that PostgreSQL could not find the schema `zabbix` in the current database. To resolve this, follow these steps:
+
+1. **Check if the schema exists:**
+
+Run this query to list all the schemas in the current database:
+
+```sql
+SELECT schema_name
+FROM information_schema.schemata;
+```
+
+If `zabbix` is not listed, it means the schema doesn't exist.
+
+2. **Create the schema (if needed):**
+
+If the `zabbix` schema does not exist, you can create it by running:
+
+```sql
+CREATE SCHEMA zabbix;
+```
+
+3. **Grant privileges after ensuring the schema exists:**
+
+Once the `zabbix` schema exists, you can grant privileges to the user:
+
+```sql
+GRANT ALL PRIVILEGES ON SCHEMA zabbix TO zabbixuser;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA zabbix TO zabbixuser;
+```
+
+This ensures that the schema and privileges are set up correctly.
+
+4. **Double-check the user creation (if needed):**
+
+If you haven’t created the `zabbixuser` yet, use this query to create it:
+
+```sql
+CREATE USER zabbixuser WITH PASSWORD '@#123';
+```
