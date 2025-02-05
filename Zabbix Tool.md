@@ -27,6 +27,8 @@ Zabbix provides its own repository for RHEL-based systems. You can enable it by 
    For Zabbix 6.4 (latest stable):
    ```bash
    sudo rpm -Uvh https://repo.zabbix.com/zabbix/6.4/rhel/8/x86_64/zabbix-release-6.4-1.el8.noarch.rpm
+
+   sudo dnf install zabbix-web
    ```
 
 2. **Clean the DNF cache:**
