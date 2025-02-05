@@ -430,6 +430,71 @@ sudo alternatives --config php
 Is command se manually **PHP 7.4 select** karo.  
 
 <hr>
+
+> # Aapke PHP configuration me kuch important errors aur warnings aa rahi hain. Inko fix karne ke liye **PHP settings update karni hogi** aur **GD library enable karni padegi**. ✅
+
+---
+
+## **✅ Step-by-Step Fix**
+### **1️⃣ Update PHP Configuration (php.ini)**
+File edit karne ke liye:
+```bash
+sudo vi /etc/php.ini
+```
+👇 **Neeche ke settings update karein:**
+```
+post_max_size = 16M
+upload_max_filesize = 16M
+max_execution_time = 300
+max_input_time = 300
+```
+File save karein: `ESC + :wq + Enter`
+
+🔄 **Restart Apache/PHP-FPM:**
+```bash
+sudo systemctl restart httpd
+sudo systemctl restart php-fpm
+```
+
+---
+
+### **2️⃣ Install & Enable GD Library**
+```bash
+sudo yum install -y php-gd --nobest --skip-broken
+sudo systemctl restart httpd
+```
+Verify karein:
+```bash
+php -m | grep gd
+```
+Agar `gd` output me nahi aata, to manually enable karein:
+
+Edit file:
+```bash
+sudo vi /etc/php.d/20-gd.ini
+```
+Agar ye file nahi hai, to create karein:
+```bash
+sudo vi /etc/php.d/gd.ini
+```
+Aur isme add karein:
+```
+extension=gd
+```
+Save karein (`ESC + :wq + Enter`) aur **restart karein**:
+```bash
+sudo systemctl restart httpd
+sudo systemctl restart php-fpm
+```
+
+---
+
+### **3️⃣ Verify PHP Settings**
+```bash
+php -i | grep -E "post_max_size|max_execution_time|max_input_time|gd"
+```
+
+<hr>
 <hr>
 
 > ## **Search for Zabbix Packages** ✅
