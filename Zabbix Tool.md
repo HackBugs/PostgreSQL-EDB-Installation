@@ -5,6 +5,8 @@
 - > **[install-zabbix-on-rhel-8/](https://www.tecmint.com/install-zabbix-on-rhel-8/)**
 - > **[how-to-install-zabbix-server-on-rhel-8-rhel-9/](https://tekneed.com/how-to-install-zabbix-server-on-rhel-8-rhel-9/)**
 
+> # Install Zabbix
+
 ### 1. **Enable the EPEL Repository**
 The Extra Packages for Enterprise Linux (EPEL) repository often contains packages that are not available in the default RHEL repositories. You can enable it by running:
 
@@ -82,6 +84,117 @@ Once everything is set up, you can access the Zabbix web interface by navigating
 ### Troubleshooting
 - **Repository Issues:** If you still encounter issues, ensure that the Zabbix repository is correctly enabled by checking the contents of `/etc/yum.repos.d/zabbix.repo`.
 - **Package Versions:** Ensure that the package versions you are trying to install are compatible with your RHEL version.
+
+<hr>
+
+> # Install PHP
+
+To upgrade PHP from version 7.2 to 7.4 (or the latest version) on Red Hat Enterprise Linux (RHEL), you need to enable the appropriate repositories and install the desired PHP version. Here's how you can do it:
+
+---
+
+### **Step 1: Remove Existing PHP (Optional)**
+If you want to clean up the existing PHP installation, you can remove it. However, this step is optional, as installing a newer version will typically replace the older one.
+
+```bash
+sudo dnf remove php*
+```
+
+---
+
+### **Step 2: Enable Remi Repository**
+The Remi repository provides the latest versions of PHP for RHEL-based systems. You can enable it as follows:
+
+1. **Install the EPEL repository (if not already installed):**
+   ```bash
+   sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+   ```
+
+2. **Install the Remi repository:**
+   ```bash
+   sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+   ```
+
+3. **Enable the Remi repository for PHP 7.4 or later:**
+   - For PHP 7.4:
+     ```bash
+     sudo dnf module reset php
+     sudo dnf module enable php:remi-7.4
+     ```
+   - For the latest PHP version (e.g., PHP 8.x):
+     ```bash
+     sudo dnf module reset php
+     sudo dnf module enable php:remi-8.2
+     ```
+
+---
+
+### **Step 3: Install PHP**
+Once the repository is enabled, install the desired PHP version:
+
+- For PHP 7.4:
+  ```bash
+  sudo dnf install php php-cli php-common php-fpm php-mysqlnd php-zip php-gd php-mbstring php-curl php-xml php-bcmath php-json
+  ```
+
+- For the latest PHP version (e.g., PHP 8.x):
+  ```bash
+  sudo dnf install php php-cli php-common php-fpm php-mysqlnd php-zip php-gd php-mbstring php-curl php-xml php-bcmath php-json
+  ```
+
+---
+
+### **Step 4: Verify the PHP Version**
+After installation, verify the PHP version to ensure the upgrade was successful:
+
+```bash
+php -v
+```
+
+You should see output similar to:
+```
+PHP 7.4.x (cli) (built: ...)
+```
+or
+```
+PHP 8.x.x (cli) (built: ...)
+```
+
+---
+
+### **Step 5: Restart Web Server (if applicable)**
+If you're using PHP with a web server like Apache or Nginx, restart the service to apply the changes:
+
+- For Apache:
+  ```bash
+  sudo systemctl restart httpd
+  ```
+
+- For Nginx (if using PHP-FPM):
+  ```bash
+  sudo systemctl restart php-fpm
+  sudo systemctl restart nginx
+  ```
+
+---
+
+### **Step 6: Check PHP Modules (Optional)**
+You can list the installed PHP modules to ensure all required extensions are installed:
+
+```bash
+php -m
+```
+
+---
+
+### **Step 7: Update PHP Configuration (Optional)**
+If you need to customize PHP settings, edit the `php.ini` file:
+
+```bash
+sudo vi /etc/php.ini
+```
+
+After making changes, restart the web server or PHP-FPM service.
 
   
 <hr>
