@@ -1,5 +1,9 @@
 > # [Zabbix Download](https://www.zabbix.com/download?zabbix=6.0&os_distribution=red_hat_enterprise_linux&os_version=9&components=server_frontend_agent&db=pgsql&ws=apache)
 
+```
+yum search zabbix
+```
+
 ### Troubleshooting Steps:
 
 #### 1. **Ensure your system is up to date**:
