@@ -5,7 +5,7 @@
 - > **[install-zabbix-on-rhel-8/](https://www.tecmint.com/install-zabbix-on-rhel-8/)**
 - > **[how-to-install-zabbix-server-on-rhel-8-rhel-9/](https://tekneed.com/how-to-install-zabbix-server-on-rhel-8-rhel-9/)**
 
-> # Install Zabbix
+> # Install Zabbix ✅
 
 ### 1. **Enable the EPEL Repository**
 The Extra Packages for Enterprise Linux (EPEL) repository often contains packages that are not available in the default RHEL repositories. You can enable it by running:
@@ -90,7 +90,7 @@ Once everything is set up, you can access the Zabbix web interface by navigating
 
 <hr>
 
-> # Install PHP
+> # Install PHP ✅
 
 To upgrade PHP from version 7.2 to 7.4 (or the latest version) on Red Hat Enterprise Linux (RHEL), you need to enable the appropriate repositories and install the desired PHP version. Here's how you can do it:
 
@@ -199,11 +199,173 @@ sudo vi /etc/php.ini
 
 After making changes, restart the web server or PHP-FPM service.
 
+
+<hr>
+
+> # Install Zabbix-web and check PHP ✅
+
+The error message indicates that the `zabbix-web` package is available in the repository but is not currently installed on your system. This is likely why you're encountering the `Not Found` error when trying to access the Zabbix web interface.
+
+Let’s resolve this step by step:
+
+---
+
+### **1. Install the `zabbix-web` Package**
+Since the package is available but not installed, you need to install it explicitly.
+
+Run the following command to install the `zabbix-web` package:
+```bash
+sudo dnf install zabbix-web
+```
+
+---
+
+### **2. Verify the Installation**
+After installation, verify that the Zabbix web files are present in the correct directory:
+```bash
+ls -l /usr/share/zabbix/
+```
+You should see a list of files and directories, such as `app`, `include`, `local`, etc.
+
+---
+
+### **3. Check Apache Configuration**
+Ensure that the Apache configuration for Zabbix is correctly set up.
+
+- Check the Zabbix Apache configuration file:
+  ```bash
+  sudo vi /etc/httpd/conf.d/zabbix.conf
+  ```
+  The file should contain something like this:
+  ```apache
+  Alias /zabbix /usr/share/zabbix
+
+  <Directory "/usr/share/zabbix">
+      Options FollowSymLinks
+      AllowOverride None
+      Require all granted
+  </Directory>
+  ```
+
+- If the file is missing, create it manually with the above content.
+
+---
+
+### **4. Restart Apache**
+After verifying the configuration, restart Apache to apply the changes:
+```bash
+sudo systemctl restart httpd
+```
+
+---
+
+### **5. Check SELinux (if enabled)**
+If SELinux is enabled, it might block access to the Zabbix web files.
+
+- Check SELinux status:
+  ```bash
+  sestatus
+  ```
+
+- Temporarily set SELinux to permissive mode to test:
+  ```bash
+  sudo setenforce 0
+  ```
+
+- If the issue is resolved, adjust SELinux policies for Zabbix:
+  ```bash
+  sudo chcon -R -t httpd_sys_rw_content_t /usr/share/zabbix/
+  ```
+
+---
+
+### **6. Check File Permissions**
+Ensure that the Zabbix web files have the correct permissions and are owned by the Apache user.
+
+- Set the correct permissions:
+  ```bash
+  sudo chmod -R 755 /usr/share/zabbix/
+  sudo chown -R apache:apache /usr/share/zabbix/
+  ```
+
+---
+
+### **7. Test with a Simple File**
+Create a simple test file in the Zabbix web directory to ensure Apache can serve files from that location.
+
+- Create a test file:
+  ```bash
+  echo "Hello, Zabbix!" | sudo tee /usr/share/zabbix/test.html
+  ```
+
+- Access the test file in your browser:
+  ```
+  http://192.168.1.71/zabbix/test.html
+  ```
+
+  If this works, the issue is likely with the Zabbix web interface configuration.
+
+---
+
+### **8. Verify Zabbix Web Interface Configuration**
+Ensure that the Zabbix web interface is properly configured.
+
+- Check the Zabbix web configuration file:
+  ```bash
+  sudo vi /etc/zabbix/web/zabbix.conf.php
+  ```
+
+  Ensure the database and Zabbix server settings are correct:
+  ```php
+  <?php
+  $DB['TYPE']     = 'POSTGRESQL';
+  $DB['SERVER']   = 'localhost';
+  $DB['PORT']     = '0';
+  $DB['DATABASE'] = 'zabbix';
+  $DB['USER']     = 'zabbix';
+  $DB['PASSWORD'] = 'your_password';
+
+  $ZBX_SERVER      = 'localhost';
+  $ZBX_SERVER_PORT = '10051';
+  $ZBX_SERVER_NAME = 'Zabbix';
+  ?>
+  ```
+
+---
+
+### **9. Check Logs for Errors**
+Check the Apache and Zabbix logs for any errors that might provide more details about the issue.
+
+- Apache error log:
+  ```bash
+  sudo tail -n 20 /var/log/httpd/error_log
+  ```
+
+- Zabbix server log:
+  ```bash
+  sudo tail -n 20 /var/log/zabbix/zabbix_server.log
+  ```
+
+---
+
+### **10. Final Check**
+After completing the above steps, try accessing the Zabbix web interface again:
+```
+http://192.168.1.71/zabbix/
+```
+
+---
+
+If the issue persists, please provide the output of the following commands so I can assist further:
+1. `ls -l /usr/share/zabbix/`
+2. `sudo cat /etc/httpd/conf.d/zabbix.conf`
+3. `sudo tail -n 20 /var/log/httpd/error_log`
+
   
 <hr>
 <hr>
 
-### **Search for Zabbix Packages**  
+### **Search for Zabbix Packages**  ✅
 ```bash
 yum search zabbix
 ```
