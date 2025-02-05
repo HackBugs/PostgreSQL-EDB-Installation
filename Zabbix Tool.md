@@ -79,7 +79,7 @@ dnf install --skip-broken zabbix-server-pgsql zabbix-web-pgsql zabbix-apache-con
 <hr>
 
 
-In PostgreSQL (EDB), the syntax you provided for granting privileges and creating a user is not quite accurate. PostgreSQL has a different approach for both granting privileges and user creation.
+> # In PostgreSQL (EDB), the syntax you provided for granting privileges and creating a user is not quite accurate. PostgreSQL has a different approach for both granting privileges and user creation.
 
 Here’s the corrected query for your request:
 
