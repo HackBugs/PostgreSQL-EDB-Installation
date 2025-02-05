@@ -1,3 +1,12 @@
+```
+sudo systemctl start zabbix-server zabbix-agent
+systemctl enable --now zabbix-agent httpd php-fpm
+sudo systemctl enable zabbix-server zabbix-agent
+sudo systemctl status zabbix-server zabbix-agent
+sudo systemctl restart httpd
+sudo systemctl restart php-fpm
+```
+
 > ## **Zabbix Installation & Troubleshooting Guide**  
 
 ### **Download Zabbix**  
