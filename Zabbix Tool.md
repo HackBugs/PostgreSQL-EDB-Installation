@@ -88,6 +88,11 @@ sudo firewall-cmd --add-service={http,https} --permanent
 sudo firewall-cmd --add-port=10050/tcp --permanent
 sudo firewall-cmd --add-port=10051/tcp --permanent
 sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+
+sudo netstat -tulnp | grep 10051
+ping zabbix-server
+nslookup zabbix-server
 ```
 
 ### 8. **Access Zabbix Web Interface**
