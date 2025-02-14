@@ -110,7 +110,7 @@ edb=# show max_connections;
 cd /opt/jboss/bin
 ps -ef | grep java
 kill -9 "PID"
-nohup ./standalone.sh --server-config standlone-ha.xml &
+nohup ./standalone.sh --server-config standalone-ha.xml &
 systemctl status edb-as*
 systemctl status pgbouncer
 ------------------------------------------------------
