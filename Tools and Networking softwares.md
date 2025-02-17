@@ -1,4 +1,4 @@
-> # cheat sheet in simple language for the mentioned software, explaining what they are used for, their websites, and why they are useful:
+> # Cheat sheet in simple language for the mentioned software, explaining what they are used for, their websites, and why they are useful:
 
 | Software           | Used For                                    | Website                         | Why Use It (Layman Language)                        |
 |--------------------|---------------------------------------------|---------------------------------|---------------------------------------------------|
