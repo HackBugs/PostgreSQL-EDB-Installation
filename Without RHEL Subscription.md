@@ -1,3 +1,11 @@
+## Local Repo
+```
+[localrepo]
+name=Local Repo
+baseurl=file:///opt/edb
+gpgcheck=0
+enabled=1
+```
 
 > # Aapke system mein "CentOS-BaseOS" repository ka URL abhi bhi outdated hai, jo ki CentOS-8 ke official repositories ke shutdown hone ke kaaran kaam nahi kar raha. Aapko repositories ko manually correct karna hoga ya CentOS Stream ya Rocky Linux par migrate karna hoga. 
 
