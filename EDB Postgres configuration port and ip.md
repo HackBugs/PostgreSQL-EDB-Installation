@@ -65,7 +65,7 @@ psql -h 127.0.0.1 -p 5444 -U enterprisedb
 
 ---
 
-### **🔹 Summary of the PEM Installation Issue**  
+> # **🔹 Summary of the PEM Installation Issue**  
 
 #### **⚡ Problem:**  
 User is trying to configure **Postgres Enterprise Manager (PEM)** on **EDB Advanced Server 15 (AS15)** using the script:  
