@@ -9,7 +9,7 @@ enabled=1
 
 ---
 
-To set up a **local repository** in **RHEL-based Linux** (Red Hat, CentOS, Rocky Linux, AlmaLinux), follow these steps:
+> # To set up a **local repository** in **RHEL-based Linux** (Red Hat, CentOS, Rocky Linux, AlmaLinux), follow these steps:
 
 ---
 
