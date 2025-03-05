@@ -1,4 +1,4 @@
-Aap **EDB Postgres Advanced Server** ki IP aur Port configuration **`postgresql.conf`** file me change kar sakte ho.  
+> ## Aap **EDB Postgres Advanced Server** ki IP aur Port configuration **`postgresql.conf`** file me change kar sakte ho.  
 
 ### **Step 1: `postgresql.conf` file ko edit karo**  
 ```bash
@@ -61,4 +61,16 @@ ss -tulnp | grep 5444
 ### **Ab aap naye port/IP par connect kar sakte ho**  
 ```bash
 psql -h 127.0.0.1 -p 5444 -U enterprisedb
+```
+
+---
+
+```
+psql -h 127.0.0.1 -p 5444 -U enterprisedb -W
+psql -h 127.0.0.1 -p 5444 -U enterprisedb
+sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb -l
+sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb
+
+ls -l /usr/edb/as15/share/extension/pem.control
+sudo cp /usr/edb/pem/share/extension/pem.control /usr/edb/as15/share/extension/
 ```
