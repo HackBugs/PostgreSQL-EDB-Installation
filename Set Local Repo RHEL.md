@@ -15,6 +15,54 @@ baseurl=file:///opt/edb
 gpgcheck=0
 enabled=1
 ```
+---
+
+Aapne ek **local YUM repository** configure kiya hai jo `/opt/edb` directory ke andar stored `.rpm` files se packages install karega.  
+
+### **Local Repo Verify & Use Karne ke Steps**  
+
+#### **1️⃣ Repo Configuration Check**  
+Aapne `/etc/yum.repos.d/local.repo` file banayi hai, jisme ye content hai:
+```ini
+[localrepo]
+name=Local Repo
+baseurl=file:///opt/edb
+gpgcheck=0
+enabled=1
+```
+Iska matlab hai ki aapke `.rpm` packages `/opt/edb` folder ke andar hone chahiye.
+
+#### **2️⃣ Check Repo List**  
+Verify karne ke liye ye command run karein:  
+```bash
+yum repolist
+```
+Agar `localrepo` show ho raha hai, to repository properly configure ho chuki hai.
+
+#### **3️⃣ Cache Rebuild Karein**  
+```bash
+yum clean all
+yum makecache
+```
+
+#### **4️⃣ Repository Se Package Install Karein**  
+```bash
+yum install <package-name> --enablerepo=localrepo
+```
+Agar `.rpm` package ka naam nahi pata, to available packages dekhne ke liye:  
+```bash
+yum list available --disablerepo="*" --enablerepo=localrepo
+```
+
+#### **5️⃣ Agar Repo Show Nahi Ho Raha To Permissions Check Karein**  
+```bash
+ls -ld /opt/edb
+ls -l /opt/edb
+```
+Agar permission issue ho, to `chmod` se access de sakte ho:
+```bash
+chmod -R 755 /opt/edb
+```
 
 ---
 
