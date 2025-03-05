@@ -65,6 +65,85 @@ psql -h 127.0.0.1 -p 5444 -U enterprisedb
 
 ---
 
+### **🔹 Summary of the PEM Installation Issue**  
+
+#### **⚡ Problem:**  
+User is trying to configure **Postgres Enterprise Manager (PEM)** on **EDB Advanced Server 15 (AS15)** using the script:  
+```bash
+sudo /usr/edb/pem/bin/configure-pem-server.sh
+```
+However, the **PEM Agent fails to register** due to a **missing "pem" database**.
+
+---
+
+### **📌 Steps Taken & Observations:**  
+
+1. **Started the PEM configuration script.**  
+   - Chose **Install type: 2 (Web Services only).**  
+   - Confirmed that required packages (`httpd`, `mod_ssl`, `edb-python310-mod-wsgi`) are already installed.  
+
+2. **Entered PostgreSQL installation details:**  
+   - Database path: `/usr/edb/as15`  
+   - Host: `127.0.0.1`  
+   - Superuser: `enterprisedb`  
+   - Port: `5444`  
+
+3. **Entered SSL certificate details.**  
+   - Provided a certificate subject for the PEM web server.  
+
+4. **Created the required SSL extension:**  
+   ```sql
+   CREATE EXTENSION sslutils;
+   ```
+   ✅ Extension `sslutils` was already installed.  
+
+5. **Error Encountered:**  
+   - **PEM Agent failed to connect to the database**:  
+     ```
+     connection to server at "127.0.0.1", port 5444 failed: FATAL:  database "pem" does not exist
+     ```
+   - **Critical Error:** `PEM Agent failed to register with PEM server.`  
+
+---
+
+### **🚀 Solution & Next Steps:**  
+
+1. **Manually create the missing "pem" database** in PostgreSQL:  
+   ```bash
+   sudo -i -u enterprisedb psql -p 5444
+   ```
+   Then, run:  
+   ```sql
+   CREATE DATABASE pem;
+   ```
+
+2. **Grant necessary permissions:**  
+   ```sql
+   GRANT ALL PRIVILEGES ON DATABASE pem TO enterprisedb;
+   ```
+
+3. **Restart PostgreSQL:**  
+   ```bash
+   sudo systemctl restart edb-as-15
+   ```
+
+4. **Retry the PEM configuration script:**  
+   ```bash
+   sudo /usr/edb/pem/bin/configure-pem-server.sh
+   ```
+
+---
+
+### **🔹 Conclusion:**  
+- The PEM configuration **failed due to the missing "pem" database**.  
+- **Manually creating the database and granting permissions should fix the issue.**  
+- If the problem persists, check PostgreSQL logs for more details:  
+  ```bash
+  sudo journalctl -u edb-as-15 --no-pager | tail -50
+  ```
+
+---
+
 ```
 psql -h 127.0.0.1 -p 5444 -U enterprisedb -W
 psql -h 127.0.0.1 -p 5444 -U enterprisedb
