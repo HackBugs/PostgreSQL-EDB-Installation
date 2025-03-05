@@ -69,6 +69,7 @@ psql -h 127.0.0.1 -p 5444 -U enterprisedb
 psql -h 127.0.0.1 -p 5444 -U enterprisedb -W
 psql -h 127.0.0.1 -p 5444 -U enterprisedb
 sudo -i -u enterprisedb psql -p 5444
+psql -h 127.0.0.1 -p 5444 -U enterprisedb -d pem
 
 sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb -l
 sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb
