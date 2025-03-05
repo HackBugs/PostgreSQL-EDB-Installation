@@ -7,6 +7,88 @@ gpgcheck=0
 enabled=1
 ```
 
+---
+
+To set up a **local repository** in **RHEL-based Linux** (Red Hat, CentOS, Rocky Linux, AlmaLinux), follow these steps:
+
+---
+
+### **1. Mount the DVD or ISO (If using a local disk)**
+If you're using an **ISO image**, mount it to `/mnt`:
+
+```bash
+mkdir -p /mnt/cdrom
+mount /dev/cdrom /mnt/cdrom
+```
+
+If using an **ISO file**, mount it like this:
+
+```bash
+mkdir -p /mnt/iso
+mount -o loop /path/to/your.iso /mnt/iso
+```
+
+---
+
+### **2. Copy Repo Files (Optional)**
+If you want to copy the repo locally for permanent usage:
+
+```bash
+mkdir -p /repo
+cp -r /mnt/cdrom/BaseOS /repo/
+cp -r /mnt/cdrom/AppStream /repo/
+```
+
+---
+
+### **3. Create a Local Repo File**
+Edit or create the repo file:
+
+```bash
+vi /etc/yum.repos.d/local.repo
+```
+
+Add the following content:
+
+```
+[redhat]
+name=Local Repository
+baseurl=file:///repo/AppStream
+gpgcheck=0
+enabled=1
+```
+
+If you are using an **ISO mount**, change the `baseurl`:
+
+```
+[localrepo]
+name=Local Repo
+baseurl=file:///mnt/iso/AppStream
+gpgcheck=0
+enabled=1
+```
+
+---
+
+### **4. Clear & Verify Repo**
+Run these commands to clear old metadata and verify the repo:
+
+```bash
+dnf clean all
+dnf repolist
+```
+
+---
+
+### **5. Install Packages from Local Repo**
+Now, you can install packages using:
+
+```bash
+dnf install <package-name> --disablerepo="*" --enablerepo="redhat"
+```
+
+---
+
 > # Aapke system mein "CentOS-BaseOS" repository ka URL abhi bhi outdated hai, jo ki CentOS-8 ke official repositories ke shutdown hone ke kaaran kaam nahi kar raha. Aapko repositories ko manually correct karna hoga ya CentOS Stream ya Rocky Linux par migrate karna hoga. 
 
 ---
