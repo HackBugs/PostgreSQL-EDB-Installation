@@ -1,5 +1,7 @@
 ---
 
+> # inatall `Installing Postgres Enterprise Manager server on RHEL 8 or OL 8 x86_64 v9` [Installtion - docs/pem](https://www.enterprisedb.com/docs/pem/latest/installing/linux_x86_64/pem_rhel_8/)
+
 > # Download and Install EDB  
 [Official Download Link](https://www.enterprisedb.com/software-downloads-postgres)
 
