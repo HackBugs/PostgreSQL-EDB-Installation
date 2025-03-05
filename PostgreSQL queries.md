@@ -108,30 +108,30 @@ Ab aapka database `mydb` tayar hai, aur `admin_user` ke paas admin privileges ha
 ---
 
 ### **General Commands**
-1. `/q` - **Exit** the PostgreSQL interactive terminal (`psql`).
-2. `/h` - **List of keywords** or available commands with explanations.
-3. `/l ?` - **Check information** about databases.
+1. `\q` - **Exit** the PostgreSQL interactive terminal (`psql`).
+2. `\h` - **List of keywords** or available commands with explanations.
+3. `\l ?` - **Check information** about databases.
 
 ---
 
 ### **Buffer Management**
-1. `/a` - **Format** query output for readability (aligned format).
-2. `/x` - **Expanded display** for wide columns or detailed output.
-3. `/r` - **Reset query buffer**, clearing any text in the buffer.
-4. `/p` - **Check query buffer** contents before execution.
+1. `\a` - **Format** query output for readability (aligned format).
+2. `\x` - **Expanded display** for wide columns or detailed output.
+3. `\r` - **Reset query buffer**, clearing any text in the buffer.
+4. `\p` - **Check query buffer** contents before execution.
 
 ---
 
 ### **Connection Management**
-1. `/c` - **Check database connection** status and switch databases.
-2. `/z ?` - **Get information** about access privileges.
+1. `\c` - **Check database connection** status and switch databases.
+2. `\z ?` - **Get information** about access privileges.
 
 ---
 
 ### **Database and Table Information**
-1. `/d pg_database;` - **Describe the `pg_database` table**, showing details about databases.
-2. `/d pg_user;` - **Describe the `pg_user` table**, showing user-related details.
-3. `/d pg_catalog.pg_tables;` - **Describe `pg_catalog.pg_tables`**, listing system and user tables.
+1. `\d pg_database;` - **Describe the `pg_database` table**, showing details about databases.
+2. `\d pg_user;` - **Describe the `pg_user` table**, showing user-related details.
+3. `\d pg_catalog.pg_tables;` - **Describe `pg_catalog.pg_tables`**, listing system and user tables.
 
 ---
 
