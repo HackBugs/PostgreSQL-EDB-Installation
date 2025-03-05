@@ -1,4 +1,13 @@
 ## Local Repo
+
+```
+yum install edb-as15-server-sslutils-1.3-1.el8.x86_64.rpm --disablerepo="*" --enablerepo="localrepo" -y
+yum clean all
+yum update -y
+dnf repolist
+rpm -ivh edb-as15-server-sslutils-1.3-1.el8.x86_64.rpm
+```
+- vi /etc/yum.repos.d/local.repo
 ```
 [localrepo]
 name=Local Repo
