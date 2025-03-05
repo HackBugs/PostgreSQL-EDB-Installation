@@ -1,4 +1,4 @@
-> ## Aap **EDB Postgres Advanced Server** ki IP aur Port configuration **`postgresql.conf`** file me change kar sakte ho.  
+> # 🔹Aap **EDB Postgres Advanced Server** ki IP aur Port configuration **`postgresql.conf`** file me change kar sakte ho.  
 
 ### **Step 1: `postgresql.conf` file ko edit karo**  
 ```bash
