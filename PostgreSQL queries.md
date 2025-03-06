@@ -9,6 +9,37 @@ SELECT tablename FROM pg_tables WHERE schemaname = 'pg_catalog';
 SELECT column_name, data_type 
 FROM information_schema.columns 
 WHERE table_name = 'holaji';
+
+\pset pager off
+\du ;
+
+psql -h 127.0.0.1 -p 5444 -U enterprisedb -W
+psql -h 127.0.0.1 -p 5444 -U enterprisedb
+sudo -i -u enterprisedb psql -p 5444
+psql -h 127.0.0.1 -p 5444 -U enterprisedb -d pem
+
+sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb -l
+sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb
+
+psql -h 192.168.226.142 -p 5444 -U enterprisedb -W
+
+user more than 5 attempt should locked
+180 shoud be expired 
+previous 5 time similler passwaor can't enter
+if account inacitve 120 that account shoub atomticlay inactive
+paswword lenth shoud be 8
+and complicity rule should be of password
+
+GRANT ALL PRIVILEGES ON DATABASE enterprisedb TO alam;
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO alam;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO alam;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO alam;
+GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO alam;
+
+ALTER USER alam WITH SUPERUSER;
+
+sudo -i -u alam psql -p 5444
 ```
 
 
