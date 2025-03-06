@@ -357,3 +357,13 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO alam;
 GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO alam;
 
 ALTER USER alam WITH SUPERUSER;
+
+<hr>
+
+```
+sudo systemctl stop pemagent
+sudo systemctl stop pemhttpd
+sudo systemctl stop edb-pem
+
+sudo dnf install remove edb-pem-server edb-pem-agent edb-pem-httpd -y
+```
