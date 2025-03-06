@@ -1,3 +1,13 @@
+```
+SELECT * from pg_views;
+SELECT usename FROM pg_user;
+SELECT * FROM pg_roles;
+SELECT * FROM pg_tables;
+SELECT * FROM pg_database;
+SELECT tablename FROM pg_tables WHERE schemaname = 'pg_catalog';
+```
+
+
 ###  `SHOW` commands with the specific parameters to check certain values or files:
 ```
 SHOW hba_file;              -- Path to the pg_hba.conf file
