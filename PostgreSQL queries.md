@@ -5,6 +5,10 @@ SELECT * FROM pg_roles;
 SELECT * FROM pg_tables;
 SELECT * FROM pg_database;
 SELECT tablename FROM pg_tables WHERE schemaname = 'pg_catalog';
+
+SELECT column_name, data_type 
+FROM information_schema.columns 
+WHERE table_name = 'holaji';
 ```
 
 
