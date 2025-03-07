@@ -138,7 +138,7 @@
 
 ---
 
-### **Examples in Short:**
+#### **Examples in Short:**
 
 - `CONCAT('Hello', 'World')` → `HelloWorld`
 - `LENGTH('Hello')` → `5`
@@ -154,6 +154,24 @@
 - `REPEAT('Hello ', 3)` → `Hello Hello Hello `
 - `POSITION('World' IN 'Hello World')` → `7`
 - `STRING_AGG(Name, ', ')` → `John, Jane, Doe` (Grouped names)
+
+
+#### **SQL String Functions Mostly use**
+
+- **CONCAT**: Do ya do se zyada strings ko combine karta hai.
+- **CONCAT_WS**: Strings ko separator ke saath combine karta hai.
+- **SUBSTR**: String ka ek part (substring) extract karta hai.
+- **LEFT**: String ke left side se specific characters extract karta hai.
+- **RIGHT**: String ke right side se specific characters extract karta hai.
+- **LENGTH**: String ki length return karta hai.
+- **UPPER**: String ko uppercase mein convert karta hai.
+- **LOWER**: String ko lowercase mein convert karta hai.
+- **TRIM**: String ke start aur end se extra spaces remove karta hai.
+- **LTRIM**: String ke start se extra spaces remove karta hai.
+- **RTRIM**: String ke end se extra spaces remove karta hai.
+- **REPLACE**: String mein specific text ko replace karta hai.
+- **POSITION**: String mein substring ka position find karta hai.
+- **STRING_AGG**: Multiple rows ke strings ko ek saath combine karta hai (grouping ke saath).
 
 ---
 
