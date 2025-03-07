@@ -6,6 +6,19 @@ export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
 export JAVA_HOME=/opt/jdk-23.0.1
 export PATH=$JAVA_HOME/bin:$PATH
 export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+-----
+export JAVA_HOME=/opt/jdk-23.0.1
+export PATH=$JAVA_HOME/bin:$PATH
+
+export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+export PATH=$JBOSS_HOME/bin:$PATH
+----
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.25.0.9-2.el8.x86_64/"
+export PATH=$PATH:$JAVA_HOME/bin
+
 ```
 
 1. Create directory
