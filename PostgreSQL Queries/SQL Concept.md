@@ -111,7 +111,7 @@
 
 ---
 
-#### **SQL String Functions **
+#### 20. **SQL String Functions **
 
 - **CONCAT()**: Do ya do se zyada strings ko combine karta hai.
 - **CONCAT_WS()**: Strings ko separator ke saath combine karta hai.
