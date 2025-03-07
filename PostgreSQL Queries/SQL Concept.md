@@ -111,6 +111,48 @@
 
 ---
 
+#### **SQL String Functions **
+
+- **CONCAT()**: Do ya do se zyada strings ko combine karta hai.
+- **CONCAT_WS()**: Strings ko separator ke saath combine karta hai.
+- **LENGTH() / LEN()**: String ki length return karta hai.
+- **UPPER() / UCASE()**: String ko uppercase mein convert karta hai.
+- **LOWER() / LCASE()**: String ko lowercase mein convert karta hai.
+- **TRIM()**: String ke start aur end se extra spaces remove karta hai.
+- **LTRIM()**: String ke start se extra spaces remove karta hai.
+- **RTRIM()**: String ke end se extra spaces remove karta hai.
+- **SUBSTRING() / SUBSTR()**: String ka ek part (substring) extract karta hai.
+- **REPLACE()**: String mein specific text ko replace karta hai.
+- **REVERSE()**: String ko reverse karta hai.
+- **LEFT()**: String ke left side se specific characters extract karta hai.
+- **RIGHT()**: String ke right side se specific characters extract karta hai.
+- **CHAR_LENGTH()**: String mein characters ki count return karta hai.
+- **LOCATE() / INSTR() / CHARINDEX()**: String mein substring ka position find karta hai.
+- **LPAD()**: String ko left side se specific length tak pad karta hai.
+- **RPAD()**: String ko right side se specific length tak pad karta hai.
+- **REPEAT()**: String ko specific number of times repeat karta hai.
+- **SPACE()**: Specific number of spaces return karta hai.
+- **STRCMP()**: Do strings ko compare karta hai aur result return karta hai.
+
+---
+
+### **Examples in Short:**
+
+- `CONCAT('Hello', 'World')` → `HelloWorld`
+- `LENGTH('Hello')` → `5`
+- `UPPER('hello')` → `HELLO`
+- `TRIM('   Hello   ')` → `Hello`
+- `SUBSTRING('Hello World', 7, 5)` → `World`
+- `REPLACE('Hello World', 'World', 'SQL')` → `Hello SQL`
+- `REVERSE('Hello')` → `olleH`
+- `LEFT('Hello World', 5)` → `Hello`
+- `RIGHT('Hello World', 5)` → `World`
+- `LOCATE('World', 'Hello World')` → `7`
+- `LPAD('Hello', 10, '*')` → `*****Hello`
+- `REPEAT('Hello ', 3)` → `Hello Hello Hello `
+
+---
+
 ### Example Queries:
 
 1. **Table Creation:**
