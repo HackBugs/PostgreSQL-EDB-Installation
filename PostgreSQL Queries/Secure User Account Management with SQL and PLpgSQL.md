@@ -1,4 +1,13 @@
-Your SQL script is mostly correct, but there are a few issues that need to be addressed:
+## Conditions --
+
+- A user should be locked after more than 5 failed attempts.  
+- Passwords should expire after 180 days.  
+- The previous 5 passwords cannot be reused.  
+- If an account is inactive for 120 days, it should be automatically deactivated.  
+- The password length should be at least 8 characters.  
+- The password should follow complexity rules.
+
+> # Your SQL script is mostly correct, but there are a few issues that need to be addressed:
 
 1. **Password Complexity Constraint**: The `password_hash` column is intended to store hashed passwords, which are typically long strings of characters that do not directly reflect the complexity of the original password. Therefore, the complexity check should be applied to the plaintext password before it is hashed, not to the hash itself. This constraint should be handled at the application level, not in the database.
 
