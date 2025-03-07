@@ -18,7 +18,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.25.0.9-2.el8.x86_64/"
 export PATH=$PATH:$JAVA_HOME/bin
-
 ```
 
 1. Create directory
