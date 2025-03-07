@@ -55,4 +55,30 @@ To allow port 9043/tcp in **firewalld**, follow these steps:
 
 ---
 
-If you are using **firewalld** (the default), then Option 1 is the recommended approach. If you prefer to use `ufw`, then Option 2 will allow you to install and configure it.
+## Using firewalld:
+
+```
+sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8443/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=9990/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+## Using iptables:
+
+```
+sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8443 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 9990 -j ACCEPT
+sudo service iptables save
+```
+
+## Using ufw:
+
+```
+sudo ufw allow 8080/tcp
+sudo ufw allow 8443/tcp
+sudo ufw allow 9990/tcp
+sudo ufw enable
+```
+
