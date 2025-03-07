@@ -1,4 +1,12 @@
+```
+export JAVA=/opt/jdk-23.0.1/bin/java
+export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+./standalone.sh
 
+export JAVA_HOME=/opt/jdk-23.0.1
+export PATH=$JAVA_HOME/bin:$PATH
+export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+```
 
 1. Create directory
  ```
