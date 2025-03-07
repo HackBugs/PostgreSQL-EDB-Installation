@@ -325,6 +325,7 @@ sudo cp /usr/edb/pem/share/extension/pem.control /usr/edb/as15/share/extension/
 
 <hr>
 
+```
 \pset pager off
 \du ;
 
@@ -337,11 +338,12 @@ sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb -l
 sudo -u enterprisedb psql -h 127.0.0.1 -p 5444 -U enterprisedb
 
 psql -h 192.168.226.142 -p 5444 -U enterprisedb -W
-
+```
 <hr>
 
 > # PostgreSQL user (role) create give PRIVILEGES
 
+```
 CREATE USER alam;
 
 GRANT ALL PRIVILEGES ON DATABASE enterprisedb TO alam;
@@ -352,7 +354,7 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO alam;
 GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO alam;
 
 ALTER USER alam WITH SUPERUSER;
-
+```
 ---
 
 > ## The error logs indicate that the user `enterprisedb` is failing to authenticate due to a **password authentication failure**. This is a common issue and can be resolved by verifying or resetting the password for the `enterprisedb` user. Let's go through the steps to fix this issue.
