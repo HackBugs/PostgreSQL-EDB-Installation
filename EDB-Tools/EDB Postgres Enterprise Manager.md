@@ -1,5 +1,10 @@
 [Installing Postgres Enterprise Manager server on AlmaLinux 9 or Rocky Linux 9 x86_64](https://www.enterprisedb.com/docs/pem/latest/installing/linux_x86_64/pem_other_linux_9/)
 
+```
+User - enterprisedb
+Password - admin@123
+```
+
 ## Local Repo
 
 ```
