@@ -342,12 +342,7 @@ psql -h 192.168.226.142 -p 5444 -U enterprisedb -W
 
 > # PostgreSQL user (role) create give PRIVILEGES
 
-user more than 5 attempt should locked
-180 shoud be expired 
-previous 5 time similler passwaor can't enter
-if account inacitve 120 that account shoub atomticlay inactive
-paswword lenth shoud be 8
-and complicity rule should be of password
+CREATE USER alam;
 
 GRANT ALL PRIVILEGES ON DATABASE enterprisedb TO alam;
 
@@ -357,6 +352,101 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO alam;
 GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO alam;
 
 ALTER USER alam WITH SUPERUSER;
+
+---
+
+> ## The error logs indicate that the user `enterprisedb` is failing to authenticate due to a **password authentication failure**. This is a common issue and can be resolved by verifying or resetting the password for the `enterprisedb` user. Let's go through the steps to fix this issue.
+
+---
+
+### **Steps to Resolve Password Authentication Failure**
+
+#### 1. **Verify the Password**
+   - Ensure that the password you're using for the `enterprisedb` user is correct.
+   - If you're unsure of the password, you can reset it.
+
+---
+
+#### 2. **Reset the Password for `enterprisedb` User**
+   - Connect to the PostgreSQL instance as a superuser (e.g., `postgres` or another superuser account).
+   - Use the `psql` command-line tool to reset the password:
+     ```bash
+     psql -U postgres -h localhost
+     ```
+   - Once connected, run the following SQL command to reset the password:
+     ```sql
+     ALTER USER enterprisedb WITH PASSWORD 'new_password';
+     ```
+     Replace `new_password` with a strong password.
+
+---
+
+#### 3. **Update the Password in the Application**
+   - If the `enterprisedb` user is being used by an application, update the password in the application's configuration file or environment variables.
+
+---
+
+#### 4. **Verify `pg_hba.conf` Configuration**
+   - The logs indicate that the connection is being matched to the following line in `pg_hba.conf`:
+     ```
+     host    all             all             127.0.0.1/32            scram-sha-256
+     ```
+   - This configuration is correct for `scram-sha-256` authentication, so no changes are needed here unless you want to switch to a different authentication method (e.g., `md5`).
+
+---
+
+#### 5. **Test the Connection**
+   - After resetting the password, test the connection using the `psql` command:
+     ```bash
+     psql -U enterprisedb -h localhost -d <database_name>
+     ```
+   - If the connection is successful, the issue is resolved.
+
+---
+
+#### 6. **Check for Password Expiry**
+   - If the password was reset recently, check if the password has expired:
+     ```sql
+     SELECT usename, valuntil FROM pg_user WHERE usename = 'enterprisedb';
+     ```
+   - If the `valuntil` column shows a past date, the password has expired. Reset it again using the `ALTER USER` command.
+
+---
+
+#### 7. **Check for Password Complexity Requirements**
+   - If your PostgreSQL instance enforces password complexity rules, ensure that the new password meets these requirements.
+
+---
+
+#### 8. **Restart the PostgreSQL Service (if necessary)**
+   - If you made changes to `pg_hba.conf` or other configuration files, reload the PostgreSQL service:
+     ```bash
+     systemctl reload edb-as-15
+     ```
+
+---
+
+### **Additional Notes**
+- If you're using a connection pooler (e.g., `pgbouncer`), ensure that the password is updated in the pooler's configuration as well.
+- If the issue persists, check the PostgreSQL logs for additional details about the authentication failure.
+
+---
+
+### **Example Workflow**
+1. Connect as a superuser:
+   ```bash
+   psql -U postgres -h localhost
+   ```
+2. Reset the password:
+   ```sql
+   ALTER USER enterprisedb WITH PASSWORD 'new_secure_password';
+   ```
+3. Test the connection:
+   ```bash
+   psql -U enterprisedb -h localhost -d <database_name>
+   ```
+
+---
 
 <hr>
 
