@@ -1,5 +1,27 @@
 ## IP Allow server side with particular port 
+
 ```
+pem - https://192.168.1.71:8443/pem/browser/
+id - enterprisedb
+Password - root
+
+id - alam
+Password - alam
+
+Jboss - http://192.168.1.71:8081/
+id - jboss
+password -  admin
+
+Zabbix - http://192.168.1.71:8080/zabbix.php?action=dashboard.view&dashboardid=1
+id - Admin
+Password - zabbix
+
+phpMyAdmin - http://192.168.1.71:8081/
+id - root
+Passwaod - root_password
+
+----------------------------------------------------------------
+
 sudo ufw allow from <Your_IP> to any port 8834
 
 telnet <Your_IP> 8834
@@ -7,6 +29,7 @@ telnet <Your_IP> 8834
 Check allowlist
 sudo ufw status
 ```
+
 ## Apache
 1. Configuration file open karein
 - (e.g., /etc/apache2/sites-available/your-site.conf).
