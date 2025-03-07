@@ -1,8 +1,8 @@
 [Installing Postgres Enterprise Manager server on AlmaLinux 9 or Rocky Linux 9 x86_64](https://www.enterprisedb.com/docs/pem/latest/installing/linux_x86_64/pem_other_linux_9/)
 
-```
-URL - https://192.168.1.71:8443/pem/ -- replace your ip
+URL - [https://192.168.1.71:8443/pem/](https://192.168.1.71:8443/pem/)
 
+```
 User - enterprisedb
 Password - admin@123
 
