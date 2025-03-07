@@ -1,5 +1,5 @@
 
-URL - [http://192.168.1.71:9990/console/index.html](http://192.168.1.71:9990/console/index.html)
+URL Jboss - [http://192.168.1.71:9990/console/index.html](http://192.168.1.71:9990/console/index.html)
 
 ```
 export JAVA=/opt/jdk-23.0.1/bin/java
