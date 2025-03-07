@@ -3,6 +3,9 @@
 ```
 User - enterprisedb
 Password - admin@123
+
+User - alam
+Password - alam
 ```
 
 ## Local Repo
