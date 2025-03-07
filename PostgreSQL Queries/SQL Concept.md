@@ -133,6 +133,8 @@
 - **REPEAT()**: String ko specific number of times repeat karta hai.
 - **SPACE()**: Specific number of spaces return karta hai.
 - **STRCMP()**: Do strings ko compare karta hai aur result return karta hai.
+- **POSITION()**: String mein substring ka position find karta hai.
+- **STRING_AGG()**: Strings ko group mein combine karta hai (SQL Server aur PostgreSQL mein).
 
 ---
 
@@ -150,6 +152,8 @@
 - `LOCATE('World', 'Hello World')` → `7`
 - `LPAD('Hello', 10, '*')` → `*****Hello`
 - `REPEAT('Hello ', 3)` → `Hello Hello Hello `
+- `POSITION('World' IN 'Hello World')` → `7`
+- `STRING_AGG(Name, ', ')` → `John, Jane, Doe` (Grouped names)
 
 ---
 
