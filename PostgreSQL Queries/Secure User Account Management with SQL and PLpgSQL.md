@@ -1,3 +1,5 @@
+- [Other link](https://www.enterprisedb.com/blog/managing-roles-password-profiles-part-1)
+
 ## Conditions --
 
 - A user should be locked after more than 5 failed attempts.  
