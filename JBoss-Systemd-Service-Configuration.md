@@ -18,7 +18,11 @@ Here’s a well-organized version with a title and proper headings:
    ```bash
    vi jboss.service
    ```
-4. Add the following configuration:  
+4. Check java location cmd
+   ```bash
+   which java
+   ``` 
+5. Add the following configuration:  
 
 ```
 [Unit]
