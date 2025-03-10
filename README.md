@@ -1,25 +1,32 @@
 ## IP Allow server side with particular port 
 
 ```
-pem - https://192.168.1.71:8443/pem/browser/
+pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
-Password - root
+Password - admin@123
 
 id - alam
 Password - alam
 
-Jboss - http://192.168.1.71:8081/
+Jboss - http://192.168.219.142:8081/
 id - jboss
 password -  admin
 
-Zabbix - http://192.168.1.71:8080/zabbix.php?action=dashboard.view&dashboardid=1
+Zabbix - http://192.168.219.142:8080/zabbix.php?action=dashboard.view&dashboardid=1
 id - Admin
 Password - zabbix
 
-phpMyAdmin - http://192.168.1.71:8081/
+phpMyAdmin - http://192.168.219.142:8081/
 id - root
 Passwaod - root_password
 
+
+export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
+./standalone.sh &
+/opt/jboss/wildfly-34.0.1.Final/bin
+/opt/jboss/wildfly-34.0.1.Final/standalone/deployments
+/opt/jboss/wildfly-34.0.1.Final/standalone/log
+```
 ----------------------------------------------------------------
 
 sudo ufw allow from <Your_IP> to any port 8834
