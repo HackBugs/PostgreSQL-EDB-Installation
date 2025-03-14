@@ -18,6 +18,7 @@
 | **MQTT Client**     | Messaging for IoT devices.                   | [mqtt.org](https://www.mqtt.org) | Connects smart devices for communication.           |
 | **WebLogic**        | Hosting and managing Java applications.      | [oracle.com](https://www.oracle.com) | Runs complex enterprise Java apps reliably.         |
 | **Tuxedo**          | Managing high-performance applications.      | [oracle.com](https://www.oracle.com) | Handles heavy workloads and transactions securely.  |
+| **MRTG**          | Network Performance Monitoring, History Data Analysis, alerting, capacity planning.      | [MRTG](https://oss.oetiker.ch) | MRTG - Milti Router Traffic Grapher.  |
 
 <hr>
 
