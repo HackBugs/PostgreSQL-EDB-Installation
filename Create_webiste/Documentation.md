@@ -15,6 +15,12 @@ npm install express pg ejs
 node app.js
 ```
 
+## To use this enhanced version of your application, you'll need to install a few additional packages:
+
+```
+npm install morgan helmet compression
+```
+
 > # Server & Jobs Dashboard Documentation
 ## Overview
 ### This documentation provides a comprehensive guide to the Server & Jobs Dashboard application, which displays server status and job information from a PostgreSQL database. The application is built using Node.js, Express, and EJS templates.
