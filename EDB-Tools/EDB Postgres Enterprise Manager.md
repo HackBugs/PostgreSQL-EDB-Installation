@@ -3,6 +3,8 @@
 URL pem - [https://192.168.1.71:8443/pem/](https://192.168.1.71:8443/pem/)
 
 ```
+find /usr/edb/pem -type f -name "*.log"
+
 pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
 Password - admin@123
