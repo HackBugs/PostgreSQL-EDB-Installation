@@ -9,6 +9,8 @@ npm init -y
 npm install express
 npm install ejs
 npm install -g nodemon
+npm install pg express morgan helmet compression ejs dotenv
+
 node app.js
 
 npm cache clean --force
