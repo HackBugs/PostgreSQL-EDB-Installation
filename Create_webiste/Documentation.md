@@ -1,5 +1,17 @@
 ## Note
 
+## ✅ Step-by-Step: Setup and Run Node Express App (on localhost)
+
+```
+node -v
+npm -v
+npm init -y
+npm install express
+npm install ejs
+npm install -g nodemon
+node app.js
+```
+
 ```
 ping 192.168.43.142
 Test-NetConnection 192.168.43.142 -Port 5444
