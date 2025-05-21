@@ -3,6 +3,9 @@
 ## ✅ Step-by-Step: Setup and Run Node Express App (on localhost)
 
 ```
+change IP_Address and Port of app.js
+----------------------------------------
+
 node -v
 npm -v
 npm init -y
