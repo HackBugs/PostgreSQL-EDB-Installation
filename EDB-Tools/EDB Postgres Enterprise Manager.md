@@ -6,6 +6,9 @@ URL pem - [https://192.168.1.71:8443/pem/](https://192.168.1.71:8443/pem/)
 find /usr/edb/pem -type f -name "*.log"
 tail -n 50 /usr/edb/pem/logs/configure-pem-server-2025-03-05-21:22:52.log
 
+sudo find / -type d -name "pem" 2>/dev/null
+sudo find / -type f -name "pg_hba.conf" 2>/dev/null
+
 pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
 Password - admin@123
