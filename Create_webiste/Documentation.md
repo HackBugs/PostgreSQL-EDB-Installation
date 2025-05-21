@@ -3,7 +3,7 @@
 ## ✅ Step-by-Step: Setup and Run Node Express App (on localhost)
 
 ```
-change IP_Address and Port of app.js
+change IP_Address and Port inside app.js
 ----------------------------------------
 
 node -v
