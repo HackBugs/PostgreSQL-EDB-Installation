@@ -4,6 +4,7 @@ URL pem - [https://192.168.1.71:8443/pem/](https://192.168.1.71:8443/pem/)
 
 ```
 find /usr/edb/pem -type f -name "*.log"
+tail -n 50 /usr/edb/pem/logs/configure-pem-server-2025-03-05-21:22:52.log
 
 pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
