@@ -1,7 +1,14 @@
+> # Install software - [NODEJS](https://nodejs.org/en/download)
 
+```
+Install Nodejs
 
+npm install express pg dotenv
+npm install express morgan helmet compression ejs
+```
 
 > # 1. Create these table and permission / grant
+
 
 ## 1. Step
 
