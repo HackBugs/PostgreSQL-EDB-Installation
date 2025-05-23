@@ -73,3 +73,10 @@ ALTER TABLE public.alerts
 
 GRANT ALL ON TABLE public.alerts TO enterprisedb;
 ```
+
+## 4. step
+
+```
+psql -U enterprisedb -h 192.168.1.142 -p 5444 -d test_website
+alter_tables.sql
+```
