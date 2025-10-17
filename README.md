@@ -1,6 +1,10 @@
 ## IP Allow server side with particular port 
 
 ```
+EDB Machine ID-Pass
+id - root
+Passowrd - admin
+
 pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
 Password - admin@123
