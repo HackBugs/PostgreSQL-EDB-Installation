@@ -6,6 +6,8 @@
 Change IP_Address and Port inside app.js
 ----------------------------------------
 
+vi /pgdata/data/pg_hba.conf
+
 node -v
 npm -v
 npm init -y
