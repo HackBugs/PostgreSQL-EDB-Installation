@@ -1,5 +1,8 @@
 ## Note
 
+https://nodejs.org/en/download
+https://nodejs.org/download/release/latest/win-x64/
+
 ## ✅ Step-by-Step: Setup and Run Node Express App (on localhost)
 
 ```
