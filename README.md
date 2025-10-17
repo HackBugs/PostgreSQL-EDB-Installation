@@ -5,6 +5,10 @@ EDB Machine ID-Pass
 id - root
 Passowrd - admin
 
+Admin
+psql -h 192.168.1.5 -p 5444 -U enterprisedb -W
+password - admin
+
 pem - https://192.168.219.142/pem/browser/
 id - enterprisedb
 Password - admin@123
