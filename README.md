@@ -35,6 +35,20 @@ export JBOSS_HOME=/opt/jboss/wildfly-34.0.1.Final
 /opt/jboss/wildfly-34.0.1.Final/standalone/deployments
 /opt/jboss/wildfly-34.0.1.Final/standalone/log
 ```
+```
+SELECT * FROM  pg_database;      
+SELECT * FROM  pg_user;          
+SELECT * FROM  pg_roles;         
+SELECT * FROM  pg_authid;        
+SELECT * FROM  pg_tables;        
+SELECT * FROM  pg_views;         
+SELECT * FROM  pg_tablespace;    
+SELECT * FROM  pg_stat_activity; 
+SELECT * FROM  pg_class;         
+SELECT * FROM  pg_index;         
+SELECT * FROM  pg_attribute;     
+SELECT * FROM  pg_constraint;
+```
 ----------------------------------------------------------------
 
 sudo ufw allow from <Your_IP> to any port 8834
